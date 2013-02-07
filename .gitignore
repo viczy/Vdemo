@@ -1,6 +1,8 @@
-# Xcode
+# XCode
+# ====
+
 .DS_Store
-build/
+build/*
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -14,5 +16,13 @@ build/
 xcuserdata
 profile
 *.moved-aside
+.DS_Store
 DerivedData
-.idea/
+
+.xcodeproj/ !*.xcodeproj/project.pbxprojs
+
+# cocoapods
+pods
+Pods.xcconfig
+
+# vendor/*
