@@ -8,5 +8,11 @@
 		<key>updateTime</key>
 		<string>2013-02-05</string>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>PhotoEditViewController</string>
+		<key>updateTime</key>
+		<string>2013-02-07</string>
+	</dict>
 </array>
 </plist>
