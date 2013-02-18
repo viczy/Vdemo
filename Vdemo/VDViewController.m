@@ -69,8 +69,17 @@
 #pragma mark tableview delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VDPageRefreshDemoViewController *vdPageRefreshDemoViewController = [[VDPageRefreshDemoViewController alloc] init];
-    [self.navigationController pushViewController:vdPageRefreshDemoViewController animated:YES];
+    switch ([indexPath row]) {
+        case 0: {
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+            VDPageRefreshDemoViewController *vdPageRefreshDemoViewController = [[VDPageRefreshDemoViewController alloc] init];
+            [self.navigationController pushViewController:vdPageRefreshDemoViewController animated:YES];
+            break;
+        }
+            
+        default:
+            break;
+    }
 }
 
 @end
