@@ -24,6 +24,7 @@
 		F9D347A516C101ED009F352C /* VDPageRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D347A416C101ED009F352C /* VDPageRefreshView.m */; };
 		F9F0C64316E0A08F003253AD /* VDPopImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F0C64216E0A08F003253AD /* VDPopImageView.m */; };
 		F9F0C64616E0A13A003253AD /* VDLoadImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F0C64516E0A13A003253AD /* VDLoadImageViewController.m */; };
+		F9F0C64916E0AE4C003253AD /* VDPopImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F0C64816E0AE4C003253AD /* VDPopImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		F9F0C64216E0A08F003253AD /* VDPopImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDPopImageView.m; sourceTree = "<group>"; };
 		F9F0C64416E0A13A003253AD /* VDLoadImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDLoadImageViewController.h; sourceTree = "<group>"; };
 		F9F0C64516E0A13A003253AD /* VDLoadImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDLoadImageViewController.m; sourceTree = "<group>"; };
+		F9F0C64716E0AE4C003253AD /* VDPopImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDPopImageViewController.h; sourceTree = "<group>"; };
+		F9F0C64816E0AE4C003253AD /* VDPopImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDPopImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,8 @@
 			children = (
 				F9D347A016C10148009F352C /* VDPageRefreshDemoViewController.h */,
 				F9D347A116C10148009F352C /* VDPageRefreshDemoViewController.m */,
+				F9F0C64716E0AE4C003253AD /* VDPopImageViewController.h */,
+				F9F0C64816E0AE4C003253AD /* VDPopImageViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				F9D347A516C101ED009F352C /* VDPageRefreshView.m in Sources */,
 				F9F0C64316E0A08F003253AD /* VDPopImageView.m in Sources */,
 				F9F0C64616E0A13A003253AD /* VDLoadImageViewController.m in Sources */,
+				F9F0C64916E0AE4C003253AD /* VDPopImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
