@@ -22,6 +22,8 @@
 		F9D3479716C0F9D6009F352C /* Menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9D3479616C0F9D6009F352C /* Menu.plist */; };
 		F9D347A216C10148009F352C /* VDPageRefreshDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D347A116C10148009F352C /* VDPageRefreshDemoViewController.m */; };
 		F9D347A516C101ED009F352C /* VDPageRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D347A416C101ED009F352C /* VDPageRefreshView.m */; };
+		F9F0C64316E0A08F003253AD /* VDPopImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F0C64216E0A08F003253AD /* VDPopImageView.m */; };
+		F9F0C64616E0A13A003253AD /* VDLoadImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F0C64516E0A13A003253AD /* VDLoadImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,10 @@
 		F9D347A116C10148009F352C /* VDPageRefreshDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDPageRefreshDemoViewController.m; sourceTree = "<group>"; };
 		F9D347A316C101ED009F352C /* VDPageRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDPageRefreshView.h; sourceTree = "<group>"; };
 		F9D347A416C101ED009F352C /* VDPageRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDPageRefreshView.m; sourceTree = "<group>"; };
+		F9F0C64116E0A08F003253AD /* VDPopImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDPopImageView.h; sourceTree = "<group>"; };
+		F9F0C64216E0A08F003253AD /* VDPopImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDPopImageView.m; sourceTree = "<group>"; };
+		F9F0C64416E0A13A003253AD /* VDLoadImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDLoadImageViewController.h; sourceTree = "<group>"; };
+		F9F0C64516E0A13A003253AD /* VDLoadImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDLoadImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,10 +175,30 @@
 		F9D3479C16C100F2009F352C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F9F0C64016E09FF2003253AD /* VDPopImageView */,
+				F9F0C63F16E09FD3003253AD /* VDPageRefreshView */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		F9F0C63F16E09FD3003253AD /* VDPageRefreshView */ = {
+			isa = PBXGroup;
+			children = (
 				F9D347A316C101ED009F352C /* VDPageRefreshView.h */,
 				F9D347A416C101ED009F352C /* VDPageRefreshView.m */,
 			);
-			name = Classes;
+			name = VDPageRefreshView;
+			sourceTree = "<group>";
+		};
+		F9F0C64016E09FF2003253AD /* VDPopImageView */ = {
+			isa = PBXGroup;
+			children = (
+				F9F0C64116E0A08F003253AD /* VDPopImageView.h */,
+				F9F0C64216E0A08F003253AD /* VDPopImageView.m */,
+				F9F0C64416E0A13A003253AD /* VDLoadImageViewController.h */,
+				F9F0C64516E0A13A003253AD /* VDLoadImageViewController.m */,
+			);
+			name = VDPopImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +275,8 @@
 				F9D3479516C0F605009F352C /* VDCommon.m in Sources */,
 				F9D347A216C10148009F352C /* VDPageRefreshDemoViewController.m in Sources */,
 				F9D347A516C101ED009F352C /* VDPageRefreshView.m in Sources */,
+				F9F0C64316E0A08F003253AD /* VDPopImageView.m in Sources */,
+				F9F0C64616E0A13A003253AD /* VDLoadImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
