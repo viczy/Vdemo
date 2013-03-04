@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VDPopImageView.h"
 
-@interface VDPopImageViewController : UIViewController
+@interface VDPopImageDemoViewController : UIViewController
+
+@property (nonatomic, strong) VDPopImageView *popImageView;
 
 @end

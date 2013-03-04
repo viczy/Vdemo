@@ -15,6 +15,8 @@ typedef enum {
 
 @interface VDPopImageView : UIImageView
 
+@property (nonatomic, strong) UIViewController *baseVC; //required ,presentvc's rootvc
+
 - (id)initWithBaseViewController:(UIViewController*)viewcontroller withJumpPath:(NSString*)path mode:(VDPopImageType)imagetype;
 
 @end

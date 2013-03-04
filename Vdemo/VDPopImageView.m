@@ -11,7 +11,7 @@
 
 @interface VDPopImageView ()
 
-@property (nonatomic, strong) UIViewController *baseVC;
+@property (nonatomic, strong) NSString *sourcepath;
 @property (nonatomic, assign) VDPopImageType imagetype;
 @property (nonatomic, strong) VDLoadImageViewController *jumpVC;
 
@@ -21,7 +21,10 @@
 
 - (id)initWithBaseViewController:(UIViewController*)baseviewcontroller withJumpPath:(NSString*)path mode:(VDPopImageType)imagetype
 {
+    self = [super init];
     if (self) {
+        self.userInteractionEnabled = YES;
+        self.sourcepath = path;
         self.baseVC = baseviewcontroller;
         self.imagetype = imagetype;
     }
@@ -30,18 +33,10 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     self.jumpVC = [[VDLoadImageViewController alloc] init];
+    self.jumpVC.sourcepath = self.sourcepath;
+    self.jumpVC.imagetype = self.imagetype;
     UINavigationController *navJumpVC = [[UINavigationController alloc] initWithRootViewController:self.jumpVC];
-    [self.baseVC presentViewController:navJumpVC animated:YES completion:^ {
-        if (self.imagetype == VDPopImageTypeLocal) {
-            self.jumpVC.navigationItem.rightBarButtonItem = nil;
-        }
-        else if (self.imagetype == VDPopImageTypeNet) {
-            //do nothing
-        }
-        else {
-            //do nothing
-        }
-    }];
+    [self.baseVC presentViewController:navJumpVC animated:YES completion:nil];
 }
 
 @end

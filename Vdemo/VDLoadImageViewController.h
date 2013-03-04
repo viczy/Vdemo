@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VDPopImageView.h"
 
-@interface VDLoadImageViewController : UIViewController
+@interface VDLoadImageViewController : UIViewController <UIScrollViewDelegate>
+
+@property (nonatomic, assign) VDPopImageType imagetype;
+@property (nonatomic, strong) NSString *sourcepath;
 
 @end

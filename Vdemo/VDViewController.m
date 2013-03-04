@@ -8,6 +8,7 @@
 
 #import "VDViewController.h"
 #import "VDPageRefreshDemoViewController.h"
+#import "VDPopImageDemoViewController.h"
 
 @interface VDViewController ()
 
@@ -69,11 +70,18 @@
 #pragma mark tableview delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch ([indexPath row]) {
         case 0: {
+            VDPageRefreshDemoViewController *vdPageRefreshDemoVC = [[VDPageRefreshDemoViewController alloc] init];
+            [self.navigationController pushViewController:vdPageRefreshDemoVC animated:YES];
+            break;
+        }
+            
+        case 1: {
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
-            VDPageRefreshDemoViewController *vdPageRefreshDemoViewController = [[VDPageRefreshDemoViewController alloc] init];
-            [self.navigationController pushViewController:vdPageRefreshDemoViewController animated:YES];
+            VDPopImageDemoViewController *vdPopImageDemoVC = [[VDPopImageDemoViewController alloc] init];
+            [self.navigationController pushViewController:vdPopImageDemoVC animated:YES];
             break;
         }
             
