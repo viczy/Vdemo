@@ -10,6 +10,8 @@
 
 @implementation VDCommon
 
+#pragma mark -
+#pragma mark file path
 //bundle's file
 + (NSString*)getBundlePathWithFileName:(NSString*)filename {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:filename ofType:nil];
@@ -22,6 +24,17 @@
     NSString *documentsPath = [filePaths objectAtIndex:0];
     NSString *filePath = [documentsPath stringByAppendingString:filename];
     return filePath;
+}
+
+
+#pragma mark -
+#pragma mark date string
+//date str with format
++ (NSString*)getDateStringByFormat:(NSString*)format withDate:(NSDate*)date{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:format];
+    NSString *returnStr = [formatter stringFromDate:date];
+    return returnStr;
 }
 
 @end

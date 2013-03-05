@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F919734B16E58D1500B72284 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F919734A16E58D1500B72284 /* Icon.png */; };
+		F919734D16E58D1B00B72284 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F919734C16E58D1B00B72284 /* Icon@2x.png */; };
 		F948ECB516E44E10005BB638 /* gallery_audio_default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F948ECB416E44E10005BB638 /* gallery_audio_default.jpg */; };
 		F99A542B16E486B400D06DE1 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F99A541916E486B400D06DE1 /* AFHTTPClient.m */; };
 		F99A542C16E486B400D06DE1 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F99A541B16E486B400D06DE1 /* AFHTTPRequestOperation.m */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F919734A16E58D1500B72284 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		F919734C16E58D1B00B72284 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		F948ECB416E44E10005BB638 /* gallery_audio_default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gallery_audio_default.jpg; sourceTree = "<group>"; };
 		F99A541816E486B400D06DE1 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		F99A541916E486B400D06DE1 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 		F9D3476016C0F3A7009F352C = {
 			isa = PBXGroup;
 			children = (
+				F919734C16E58D1B00B72284 /* Icon@2x.png */,
+				F919734A16E58D1500B72284 /* Icon.png */,
 				F99A541616E486B400D06DE1 /* Library */,
 				F97563C716C1FA430093198F /* Vendor */,
 				F948ECB316E44E10005BB638 /* Resources */,
@@ -340,6 +346,8 @@
 				F9D3478916C0F3A7009F352C /* VDViewController.xib in Resources */,
 				F9D3479716C0F9D6009F352C /* Menu.plist in Resources */,
 				F948ECB516E44E10005BB638 /* gallery_audio_default.jpg in Resources */,
+				F919734B16E58D1500B72284 /* Icon.png in Resources */,
+				F919734D16E58D1B00B72284 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

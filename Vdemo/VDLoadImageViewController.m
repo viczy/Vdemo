@@ -130,11 +130,13 @@
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
-    CGFloat originx = self.scrollViewScale.frame.size.width > self.imageViewOrigin.frame.size.width ? (self.scrollViewScale.frame.size.width - self.imageViewOrigin.frame.size.width)/2 : 0.f;
-    CGFloat originy = self.scrollViewScale.frame.size.height > self.imageViewOrigin.frame.size.height ? (self.scrollViewScale.frame.size.height - self.imageViewOrigin.frame.size.height)/2 : 0.f;
-    self.imageViewOrigin.frame = CGRectMake(originx, originy, self.imageViewOrigin.frame.size.width, self.imageViewOrigin.frame.size.height);
     return self.imageViewOrigin;
 }
 
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    CGFloat originx = self.scrollViewScale.frame.size.width > self.imageViewOrigin.frame.size.width ? (self.scrollViewScale.frame.size.width - self.imageViewOrigin.frame.size.width)/2 : 0.f;
+    CGFloat originy = self.scrollViewScale.frame.size.height > self.imageViewOrigin.frame.size.height ? (self.scrollViewScale.frame.size.height - self.imageViewOrigin.frame.size.height)/2 : 0.f;
+    self.imageViewOrigin.frame = CGRectMake(originx, originy, self.imageViewOrigin.frame.size.width, self.imageViewOrigin.frame.size.height);
+}
 
 @end

@@ -10,9 +10,18 @@
 
 @interface VDCommon : NSObject
 
+////path
+
 //bundle's file
 + (NSString*)getBundlePathWithFileName:(NSString*)filename;
 //documents's file
 + (NSString*)getDocumentsPathWithFileName:(NSString*)filename;
+
+
+////date string
+
+//date with format
++ (NSString*)getDateStringByFormat:(NSString*)format withDate:(NSDate*)date;
+
 
 @end
