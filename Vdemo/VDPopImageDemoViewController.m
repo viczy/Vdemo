@@ -28,8 +28,9 @@
 {
     [super viewDidLoad];
 //test data
-NSString *path = @"http://222.66.33.210:8002/res/data/icon/3_1361954916257.jpg";
-    self.popImageView = [[VDPopImageView alloc] initWithBaseViewController:self withJumpPath:path mode:VDPopImageTypeNet];
+NSString *path = [[NSBundle mainBundle] pathForResource:@"result" ofType:@"jpg"];//local
+//NSString *path = @"http://222.66.33.210:8002/res/data/icon/3_1361954916257.jpg";//net
+    self.popImageView = [[VDPopImageView alloc] initWithBaseViewController:self withJumpPath:path mode:VDPopImageTypeLocal];
     self.popImageView.baseVC = self;
     self.popImageView.frame = CGRectMake(100, 100, 100, 100);
     //need to change

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F919734B16E58D1500B72284 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F919734A16E58D1500B72284 /* Icon.png */; };
 		F919734D16E58D1B00B72284 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F919734C16E58D1B00B72284 /* Icon@2x.png */; };
+		F919734F16E590BA00B72284 /* result.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F919734E16E590BA00B72284 /* result.jpg */; };
 		F948ECB516E44E10005BB638 /* gallery_audio_default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F948ECB416E44E10005BB638 /* gallery_audio_default.jpg */; };
 		F99A542B16E486B400D06DE1 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F99A541916E486B400D06DE1 /* AFHTTPClient.m */; };
 		F99A542C16E486B400D06DE1 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F99A541B16E486B400D06DE1 /* AFHTTPRequestOperation.m */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		F919734A16E58D1500B72284 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		F919734C16E58D1B00B72284 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		F919734E16E590BA00B72284 /* result.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = result.jpg; sourceTree = "<group>"; };
 		F948ECB416E44E10005BB638 /* gallery_audio_default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gallery_audio_default.jpg; sourceTree = "<group>"; };
 		F99A541816E486B400D06DE1 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		F99A541916E486B400D06DE1 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		F948ECB616E44FDC005BB638 /* Pics */ = {
 			isa = PBXGroup;
 			children = (
+				F919734E16E590BA00B72284 /* result.jpg */,
 				F948ECB416E44E10005BB638 /* gallery_audio_default.jpg */,
 			);
 			name = Pics;
@@ -348,6 +351,7 @@
 				F948ECB516E44E10005BB638 /* gallery_audio_default.jpg in Resources */,
 				F919734B16E58D1500B72284 /* Icon.png in Resources */,
 				F919734D16E58D1B00B72284 /* Icon@2x.png in Resources */,
+				F919734F16E590BA00B72284 /* result.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
