@@ -12,7 +12,6 @@
 
 @interface VDViewController ()
 
-@property (nonatomic, strong) UITableView *rootTableView;
 @property (nonatomic, strong) NSArray *source;
 
 @end
@@ -27,15 +26,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    
     self.navigationItem.title = @"VDemo";
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     NSString *sourcePath = [VDCommon getBundlePathWithFileName:MenuName];
     self.source = [NSArray arrayWithContentsOfFile:sourcePath];
-    
-	self.rootTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-    self.rootTableView.dataSource = self;
-    self.rootTableView.delegate = self;
-    [self.view addSubview:self.rootTableView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,6 +54,7 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:Indentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Indentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     if ([self.source count] > row) {
         NSDictionary *sourceDic = [self.source objectAtIndex:row];
@@ -88,6 +86,24 @@
         default:
             break;
     }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    //do something for move
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //do something for delete
+    }
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
 }
 
 @end

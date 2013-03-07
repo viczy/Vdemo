@@ -31,9 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
     
     //set leftbuttonitem and rightbuttonitem
-    self.view.backgroundColor = [UIColor blackColor];
     UIBarButtonItem *btnItemBack = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(btnItemBackEvent)];
     self.navigationItem.leftBarButtonItem = btnItemBack;
     

@@ -123,7 +123,6 @@
 - (void)scrollingEnded
 {
 //    self.isScrolling = NO;
-    
     NSUInteger newIndex = floor(self.contentOffset.x / self.frame.size.width);
     
     if (newIndex == self.currentIndex) {
