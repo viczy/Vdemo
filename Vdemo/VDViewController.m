@@ -9,6 +9,8 @@
 #import "VDViewController.h"
 #import "VDPageRefreshDemoViewController.h"
 #import "VDPopImageDemoViewController.h"
+#import "VDShareKitDemoViewController.h"
+#import "VDScrollViewController.h"
 
 @interface VDViewController ()
 
@@ -77,9 +79,20 @@
         }
             
         case 1: {
-            [tableView deselectRowAtIndexPath:indexPath animated:YES];
             VDPopImageDemoViewController *vdPopImageDemoVC = [[VDPopImageDemoViewController alloc] init];
             [self.navigationController pushViewController:vdPopImageDemoVC animated:YES];
+            break;
+        }
+            
+        case 2: {
+            VDShareKitDemoViewController *vdShareDemoVC = [[VDShareKitDemoViewController alloc] init];
+            [self.navigationController pushViewController:vdShareDemoVC animated:YES];
+            break;
+        }
+            
+        case 3: {
+            VDShareKitDemoViewController *vdShareDemoVC = [[VDShareKitDemoViewController alloc] init];
+            [self.navigationController pushViewController:vdShareDemoVC animated:YES];
             break;
         }
             

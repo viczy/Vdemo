@@ -10,9 +10,21 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>PhotoEditViewController</string>
+		<string>PopImageViewController</string>
 		<key>updateTime</key>
 		<string>2013-02-07</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>ShareKitViewController</string>
+		<key>updateTime</key>
+		<string>2013-03-13</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>ScrollViewController</string>
+		<key>updateTime</key>
+		<string>2013-03-13</string>
 	</dict>
 </array>
 </plist>
