@@ -7,6 +7,7 @@
 //
 
 #import "VDShareKitDemoViewController.h"
+#import "VDScrollDemoViewController.h"
 
 @interface VDShareKitDemoViewController ()
 
@@ -43,7 +44,7 @@
 }
 
 - (void)shareAction {
-    
+    //shareAction
 }
 
 @end

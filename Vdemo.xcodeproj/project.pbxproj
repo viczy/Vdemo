@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E0812737ECD1404B92D5D84D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC228876CB17435F86257E2C /* libPods.a */; };
 		F9035AF216F0160B00DABD67 /* VDShareKitDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9035AF116F0160B00DABD67 /* VDShareKitDemoViewController.m */; };
-		F9035D1F16F05CC000DABD67 /* VDScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9035D1E16F05CC000DABD67 /* VDScrollViewController.m */; };
+		F9035D1F16F05CC000DABD67 /* VDScrollDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9035D1E16F05CC000DABD67 /* VDScrollDemoViewController.m */; };
 		F914687E16E6E1EE000503ED /* VDMediaControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = F914687D16E6E1EE000503ED /* VDMediaControlView.m */; };
 		F919734B16E58D1500B72284 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F919734A16E58D1500B72284 /* Icon.png */; };
 		F919734D16E58D1B00B72284 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F919734C16E58D1B00B72284 /* Icon@2x.png */; };
@@ -51,8 +51,8 @@
 		DF258B2731CE4390AA8BE695 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		F9035AF016F0160B00DABD67 /* VDShareKitDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDShareKitDemoViewController.h; sourceTree = "<group>"; };
 		F9035AF116F0160B00DABD67 /* VDShareKitDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDShareKitDemoViewController.m; sourceTree = "<group>"; };
-		F9035D1D16F05CC000DABD67 /* VDScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDScrollViewController.h; sourceTree = "<group>"; };
-		F9035D1E16F05CC000DABD67 /* VDScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDScrollViewController.m; sourceTree = "<group>"; };
+		F9035D1D16F05CC000DABD67 /* VDScrollDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDScrollDemoViewController.h; sourceTree = "<group>"; };
+		F9035D1E16F05CC000DABD67 /* VDScrollDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDScrollDemoViewController.m; sourceTree = "<group>"; };
 		F914687C16E6E1EE000503ED /* VDMediaControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMediaControlView.h; sourceTree = "<group>"; };
 		F914687D16E6E1EE000503ED /* VDMediaControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMediaControlView.m; sourceTree = "<group>"; };
 		F919734A16E58D1500B72284 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -273,8 +273,8 @@
 				F9F0C64816E0AE4C003253AD /* VDPopImageDemoViewController.m */,
 				F9035AF016F0160B00DABD67 /* VDShareKitDemoViewController.h */,
 				F9035AF116F0160B00DABD67 /* VDShareKitDemoViewController.m */,
-				F9035D1D16F05CC000DABD67 /* VDScrollViewController.h */,
-				F9035D1E16F05CC000DABD67 /* VDScrollViewController.m */,
+				F9035D1D16F05CC000DABD67 /* VDScrollDemoViewController.h */,
+				F9035D1E16F05CC000DABD67 /* VDScrollDemoViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -437,7 +437,7 @@
 				F99A543316E486B400D06DE1 /* UIImageView+AFNetworking.m in Sources */,
 				F914687E16E6E1EE000503ED /* VDMediaControlView.m in Sources */,
 				F9035AF216F0160B00DABD67 /* VDShareKitDemoViewController.m in Sources */,
-				F9035D1F16F05CC000DABD67 /* VDScrollViewController.m in Sources */,
+				F9035D1F16F05CC000DABD67 /* VDScrollDemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

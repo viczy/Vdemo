@@ -10,7 +10,7 @@
 #import "VDPageRefreshDemoViewController.h"
 #import "VDPopImageDemoViewController.h"
 #import "VDShareKitDemoViewController.h"
-#import "VDScrollViewController.h"
+#import "VDScrollDemoViewController.h"
 
 @interface VDViewController ()
 
@@ -91,8 +91,8 @@
         }
             
         case 3: {
-            VDShareKitDemoViewController *vdShareDemoVC = [[VDShareKitDemoViewController alloc] init];
-            [self.navigationController pushViewController:vdShareDemoVC animated:YES];
+            VDScrollDemoViewController *vdScrollDemoVC = [[VDScrollDemoViewController alloc] init];
+            [self.navigationController pushViewController:vdScrollDemoVC animated:YES];
             break;
         }
             
@@ -118,5 +118,6 @@
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleDelete;
 }
+
 
 @end
