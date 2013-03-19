@@ -24,6 +24,7 @@
 		F99A543116E486B400D06DE1 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F99A542616E486B400D06DE1 /* AFURLConnectionOperation.m */; };
 		F99A543216E486B400D06DE1 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F99A542816E486B400D06DE1 /* AFXMLRequestOperation.m */; };
 		F99A543316E486B400D06DE1 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F99A542A16E486B400D06DE1 /* UIImageView+AFNetworking.m */; };
+		F9BEE60C16F8140D00941DBE /* UIImageView+Clipped.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BEE60B16F8140D00941DBE /* UIImageView+Clipped.m */; };
 		F9D3476D16C0F3A7009F352C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D3476C16C0F3A7009F352C /* UIKit.framework */; };
 		F9D3476F16C0F3A7009F352C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D3476E16C0F3A7009F352C /* Foundation.framework */; };
 		F9D3477116C0F3A7009F352C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D3477016C0F3A7009F352C /* CoreGraphics.framework */; };
@@ -78,6 +79,8 @@
 		F99A542816E486B400D06DE1 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		F99A542916E486B400D06DE1 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		F99A542A16E486B400D06DE1 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		F9BEE60A16F8140D00941DBE /* UIImageView+Clipped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Clipped.h"; sourceTree = "<group>"; };
+		F9BEE60B16F8140D00941DBE /* UIImageView+Clipped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Clipped.m"; sourceTree = "<group>"; };
 		F9D3476916C0F3A7009F352C /* Vdemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vdemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D3476C16C0F3A7009F352C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F9D3476E16C0F3A7009F352C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -199,6 +202,15 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		F9BEE60516F8130900941DBE /* UIImageView+Clipped */ = {
+			isa = PBXGroup;
+			children = (
+				F9BEE60A16F8140D00941DBE /* UIImageView+Clipped.h */,
+				F9BEE60B16F8140D00941DBE /* UIImageView+Clipped.m */,
+			);
+			name = "UIImageView+Clipped";
+			sourceTree = "<group>";
+		};
 		F9D3476016C0F3A7009F352C = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +310,7 @@
 		F9D3479C16C100F2009F352C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F9BEE60516F8130900941DBE /* UIImageView+Clipped */,
 				F919735016E59D3700B72284 /* VDMediaPlayerView */,
 				F9F0C64016E09FF2003253AD /* VDPopImageView */,
 				F9F0C63F16E09FD3003253AD /* VDPageRefreshView */,
@@ -438,6 +451,7 @@
 				F914687E16E6E1EE000503ED /* VDMediaControlView.m in Sources */,
 				F9035AF216F0160B00DABD67 /* VDShareKitDemoViewController.m in Sources */,
 				F9035D1F16F05CC000DABD67 /* VDScrollDemoViewController.m in Sources */,
+				F9BEE60C16F8140D00941DBE /* UIImageView+Clipped.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

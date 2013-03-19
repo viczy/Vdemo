@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VDScrollDemoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface VDScrollDemoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @end

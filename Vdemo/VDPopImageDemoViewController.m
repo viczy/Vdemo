@@ -7,6 +7,7 @@
 //
 
 #import "VDPopImageDemoViewController.h"
+#import "UIImageView+Clipped.h"
 
 @interface VDPopImageDemoViewController ()
 
@@ -35,6 +36,7 @@ NSString *path = [[NSBundle mainBundle] pathForResource:@"result" ofType:@"jpg"]
     self.popImageView.frame = CGRectMake(100, 100, 100, 100);
     //need to change
     self.popImageView.image = [UIImage imageNamed:@"gallery_audio_default.jpg"];
+    [self.popImageView resetImageClipped];
     [self.view addSubview:self.popImageView];
 	// Do any additional setup after loading the view.
 }

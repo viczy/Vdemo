@@ -11,9 +11,8 @@
 @interface VDScrollDemoViewController ()
 
 @property (nonatomic, strong) UITableView *tableviewList;
-@property (nonatomic, strong) UIView *viewTableHeader;
-@property (nonatomic, strong) UIView *viewTableFooter;
-@property (nonatomic, strong) UIView *viewSectionHeader;
+@property (nonatomic, strong) UIView *viewHeader;
+@property (nonatomic, strong) UIView *viewSegment;
 
 @end
 
@@ -39,43 +38,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.tableviewList = [[UITableView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.bounds.size.width, self.view.bounds.size.height - 44.f)];
+    
+    CGFloat heightHeader = 100.f;
+    CGFloat heightSegment = 40.f;
+    
+    self.viewHeader = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.frame.size.width, heightHeader)];
+    self.viewHeader.backgroundColor = [UIColor purpleColor];
+    
+    self.viewSegment = [[UIView alloc] initWithFrame:CGRectMake(0.f, heightHeader-heightSegment, self.view.frame.size.width, heightSegment)];
+    self.viewSegment.backgroundColor = [UIColor blueColor];
+    [self.viewHeader addSubview:self.viewSegment];
+    [self.view addSubview:self.viewHeader];
+    
+    self.tableviewList = [[UITableView alloc] initWithFrame:CGRectMake(0.f, heightHeader, self.view.bounds.size.width, self.view.bounds.size.height - 44.f)];
     self.tableviewList.dataSource = self;
     self.tableviewList.delegate = self;
-    self.tableviewList.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.tableviewList];
-    [self tableviewRefresh];
-}
-
-- (void)tableviewRefresh {
-    [self tableviewHeader];
-    [self tableviewFooter];
-}
-
-
-- (void)tableviewHeader {
-    if (!self.viewTableHeader) {
-        self.viewTableHeader = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.tableviewList.frame.size.width, 60.f)];
-        self.viewTableHeader.backgroundColor = [UIColor blueColor];
-    }
-    self.tableviewList.tableHeaderView = self.viewTableHeader;
-}
-
-- (void)tableviewFooter {
-    if (!self.viewTableFooter) {
-        self.viewTableFooter = [[UITableView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.tableviewList.frame.size.width, self.view.frame.size.height-44.f-20.f)];
-        self.viewTableFooter.backgroundColor = [UIColor redColor];
-    }
-    self.tableviewList.tableFooterView = self.viewTableFooter;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (!self.viewSectionHeader) {
-        self.viewSectionHeader = [[UIView alloc] initWithFrame:CGRectMake (0.f, 0.f, tableView.frame.size.width, 40.f)];
-        self.viewSectionHeader.backgroundColor = [UIColor purpleColor];
-    }
-    return self.viewSectionHeader;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -85,6 +63,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
+}
+
+#pragma mark -
+#pragma mark UIScorllView delegate
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+    
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    UIPanGestureRecognizer *panGesture = scrollView.panGestureRecognizer;
+    CGPoint point = [panGesture translationInView:self.view];
 }
 
 @end
