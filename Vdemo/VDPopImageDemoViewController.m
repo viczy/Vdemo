@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
 //test data
-NSString *path = [[NSBundle mainBundle] pathForResource:@"Default" ofType:@"png"];//local
+NSString *path = [[NSBundle mainBundle] pathForResource:@"images" ofType:@"png"];//local
 //NSString *path = @"http://222.66.33.210:8002/res/data/icon/3_1361954916257.jpg";//net
     self.popImageView = [[VDPopImageView alloc] initWithBaseViewController:self withJumpPath:path mode:VDPopImageTypeLocal];
     self.popImageView.baseVC = self;

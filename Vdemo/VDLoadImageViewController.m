@@ -47,7 +47,6 @@
     self.scrollViewScale = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, self.view.bounds.size.height-44.f)];
     self.scrollViewScale.delegate = self;
     self.scrollViewScale.backgroundColor = [UIColor blackColor];
-    self.scrollViewScale.maximumZoomScale = 3.0;
     [self.view addSubview:self.scrollViewScale];
     
     //add imageview or waiting view
@@ -58,16 +57,19 @@
         waitView.color = [UIColor lightGrayColor];
         [self.view addSubview:waitView];
         [waitView startAnimating];
-        [self.imageViewOrigin requestImageWithURL:[NSURL URLWithString:self.sourcepath] withDoneBlock:^(UIImage *img) {
+        [self.imageViewOrigin setImageWithURLRequest:[NSURL URLWithString:self.sourcepath] placeholderImage:[UIImage imageNamed:@"Default.png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
             [waitView stopAnimating];
-            if (img) {
-                self.imageOrigin = img;
+            if (image) {
+                self.imageOrigin = image;
                 self.navigationItem.rightBarButtonItem.enabled = YES;
             }
             else {
                 self.imageOrigin = [UIImage imageNamed:@"Default.png"];
             }
-        }];
+        }
+                                             failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
+                                                 self.imageOrigin = [UIImage imageNamed:@"Default.png"];
+                                             }];
     }
     else if (self.imagetype == VDPopImageTypeLocal) {
         self.imageOrigin = [UIImage imageWithContentsOfFile:self.sourcepath];
@@ -101,6 +103,13 @@
     self.imageViewOrigin.frame = imageViewRect;
     
     self.imageViewOrigin.image = imageOrigin;
+    
+    CGFloat widthPercent = imageSize.width/backgroundSize.width;
+    CGFloat heightPercent = imageSize.height/backgroundSize.height;
+    CGFloat percent = widthPercent>heightPercent ? widthPercent:heightPercent;
+    percent = percent>1 ? percent : 1;
+    self.scrollViewScale.maximumZoomScale = percent+1;
+    
     _imageOrigin = imageOrigin;
 }
 
