@@ -65,7 +65,7 @@
                 self.navigationItem.rightBarButtonItem.enabled = YES;
             }
             else {
-                self.imageOrigin = [UIImage imageNamed:@"net_image_default.png"];
+                self.imageOrigin = [UIImage imageNamed:@"Default.png"];
             }
         }];
     }
