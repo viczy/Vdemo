@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VDShareKitDemoViewController : UIViewController
+@interface VDShareKitDemoViewController : UIViewController <UIActionSheetDelegate>
 
 @end

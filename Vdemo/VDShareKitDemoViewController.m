@@ -8,6 +8,7 @@
 
 #import "VDShareKitDemoViewController.h"
 #import "VDScrollDemoViewController.h"
+#import "SHK.h"
 
 @interface VDShareKitDemoViewController ()
 
@@ -44,7 +45,28 @@
 }
 
 - (void)shareAction {
-    //shareAction
+    SHKItem *item = [SHKItem image:self.imageviewShare.image title:@"vic demo share image"];
+    
+    /* optional examples
+     item.tags = [NSArray arrayWithObjects:@"bay bridge", @"architecture", @"california", nil];
+     
+     //give a source rect in the coords of the view set with setRootViewController:
+     item.popOverSourceRect = [self.navigationController.toolbar convertRect:self.navigationController.toolbar.bounds toView:self.view];
+     */
+    
+	SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+	[SHK setRootViewController:self];
+	[actionSheet showFromToolbar:self.navigationController.toolbar];
+    
+//    UIActionSheet *shareSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Share", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Sina", nil), NSLocalizedString(@"QQ", nil), nil];
+//    [shareSheet showInView:self.view];
+}
+
+#pragma mark -
+#pragma mark UIActionSheet delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
 }
 
 @end
