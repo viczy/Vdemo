@@ -33,7 +33,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:self action:@selector(shareAction)];
     
 	self.imageviewShare = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.bounds.size.width, self.view.bounds.size.height-44.0)];
-    self.imageviewShare.image = [UIImage imageNamed:@"Default.png"];
+    self.imageviewShare.image = [UIImage imageNamed:@"PAV.bundle/dj.png"];
     [self.view addSubview:self.imageviewShare];
 }
 

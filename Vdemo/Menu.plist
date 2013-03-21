@@ -26,5 +26,11 @@
 		<key>updateTime</key>
 		<string>2013-03-13</string>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>EditImageViewController</string>
+		<key>updateTime</key>
+		<string>2013-03-21</string>
+	</dict>
 </array>
 </plist>

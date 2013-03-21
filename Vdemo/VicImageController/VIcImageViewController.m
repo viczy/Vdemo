@@ -83,7 +83,7 @@
 }
 
 - (void)backBtnEvent {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)funBtnEvent {
@@ -129,8 +129,8 @@
     rightBtn.showsTouchWhenHighlighted = YES;
     leftBtn.frame = CGRectMake(oldImgViewFrame.origin.x, 0.0, 60.0, 44.0);
     rightBtn.frame = CGRectMake(oldImgViewFrame.size.width - 60.0, 0.0, 60.0, 44.0);
-    [leftBtn setImage:[UIImage imageNamed:@"rotate_left.png"] forState:UIControlStateNormal];
-    [rightBtn setImage:[UIImage imageNamed:@"rotate_right.png"] forState:UIControlStateNormal];
+    [leftBtn setImage:[UIImage imageNamed:@"Pic.bundle/rotate_left.png"] forState:UIControlStateNormal];
+    [rightBtn setImage:[UIImage imageNamed:@"Pic.bundle/rotate_right.png"] forState:UIControlStateNormal];
     [leftBtn addTarget:self action:@selector(rotateLeft) forControlEvents:UIControlEventTouchUpInside];
     [rightBtn addTarget:self action:@selector(rotateRight) forControlEvents:UIControlEventTouchUpInside];
     [baseView addSubview:leftBtn];
@@ -194,8 +194,8 @@
     rightBtn.frame = CGRectMake(oldImgViewFrame.size.width - 60.0, 0.0, 60.0, 44.0);
     leftBtn.showsTouchWhenHighlighted = YES;
     rightBtn.showsTouchWhenHighlighted = YES;
-    [leftBtn setImage:[UIImage imageNamed:@"cancel.png"] forState:UIControlStateNormal];
-    [rightBtn setImage:[UIImage imageNamed:@"edit_sure.png"] forState:UIControlStateNormal];
+    [leftBtn setImage:[UIImage imageNamed:@"Pic.bundle/cancel.png"] forState:UIControlStateNormal];
+    [rightBtn setImage:[UIImage imageNamed:@"Pic.bundle/edit_sure.png"] forState:UIControlStateNormal];
     [leftBtn addTarget:self action:@selector(cropCancel) forControlEvents:UIControlEventTouchUpInside];
     [rightBtn addTarget:self action:@selector(cropSure) forControlEvents:UIControlEventTouchUpInside];
     if (_cancelEnabled) {
@@ -272,8 +272,8 @@
     rightBtn.showsTouchWhenHighlighted = YES;
     leftBtn.frame = CGRectMake(oldImgViewFrame.origin.x, 0.0, 60.0, 44.0);
     rightBtn.frame = CGRectMake(oldImgViewFrame.size.width - 60.0, 0.0, 60.0, 44.0);
-    [leftBtn setImage:[UIImage imageNamed:@"cancel.png"] forState:UIControlStateNormal];
-    [rightBtn setImage:[UIImage imageNamed:@"edit_sure.png"] forState:UIControlStateNormal];
+    [leftBtn setImage:[UIImage imageNamed:@"Pic.bundle/cancel.png"] forState:UIControlStateNormal];
+    [rightBtn setImage:[UIImage imageNamed:@"Pic.bundle/edit_sure.png"] forState:UIControlStateNormal];
     [leftBtn addTarget:self action:@selector(drawCancel) forControlEvents:UIControlEventTouchUpInside];
     [rightBtn addTarget:self action:@selector(drawSure) forControlEvents:UIControlEventTouchUpInside];
     if (_cancelEnabled) {
@@ -315,9 +315,9 @@
     self.view.backgroundColor = [UIColor blackColor];
     [self initNav];
 	NSArray *items = [NSArray arrayWithObjects:
-					  [UIImage imageNamed:@"orientation.png"],
-					  [UIImage imageNamed:@"crop.png"],
-					  [UIImage imageNamed:@"draw.png"],
+					  [UIImage imageNamed:@"Pic.bundle/orientation.png"],
+					  [UIImage imageNamed:@"Pic.bundle/crop.png"],
+					  [UIImage imageNamed:@"Pic.bundle/draw.png"],
 					  nil];
 	MCSegmentedControl *segmentedControl = [[MCSegmentedControl alloc] initWithItems:items];
     segmentedControl.frame = CGRectMake((self.view.frame.size.width-300.0)/2, self.view.frame.size.height - TABHEIGHT -44.0, 300.0f, TABHEIGHT);
@@ -333,7 +333,7 @@
 	[self.view addSubview:segmentedControl];
 	[segmentedControl release];
     if (nil == self.editImage) {
-        self.editImage = [UIImage imageNamed:@"Default.jpg"];
+        self.editImage = [UIImage imageNamed:@"PAV.bundle/dj.png"];
     }
     self.originImage = self.editImage;
     [self switchOrientationView];

@@ -57,18 +57,18 @@
         waitView.color = [UIColor lightGrayColor];
         [self.view addSubview:waitView];
         [waitView startAnimating];
-        [self.imageViewOrigin setImageWithURLRequest:[NSURL URLWithString:self.sourcepath] placeholderImage:[UIImage imageNamed:@"Default.png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        [self.imageViewOrigin setImageWithURLRequest:[NSURL URLWithString:self.sourcepath] placeholderImage:[UIImage imageNamed:@"PAV.bundle/dj.png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
             [waitView stopAnimating];
             if (image) {
                 self.imageOrigin = image;
                 self.navigationItem.rightBarButtonItem.enabled = YES;
             }
             else {
-                self.imageOrigin = [UIImage imageNamed:@"Default.png"];
+                self.imageOrigin = [UIImage imageNamed:@"PAV.bundle/dj.png"];
             }
         }
                                              failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-                                                 self.imageOrigin = [UIImage imageNamed:@"Default.png"];
+                                                 self.imageOrigin = [UIImage imageNamed:@"PAV.bundle/dj.png"];
                                              }];
     }
     else if (self.imagetype == VDPopImageTypeLocal) {
