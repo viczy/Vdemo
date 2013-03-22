@@ -26,6 +26,9 @@
 		F961270016FAAA70008026AE /* PAV.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F96126FF16FAAA70008026AE /* PAV.bundle */; };
 		F961270516FACF0D008026AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F961270316FACF0D008026AE /* Localizable.strings */; };
 		F961270F16FAEF70008026AE /* VDShareKitConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F961270E16FAEF70008026AE /* VDShareKitConfigurator.m */; };
+		F961271216FBF4AE008026AE /* VDVideoPlayerDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F961271116FBF4AE008026AE /* VDVideoPlayerDemoViewController.m */; };
+		F961271816FBF712008026AE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F961271716FBF712008026AE /* MediaPlayer.framework */; };
+		F961271C16FC007D008026AE /* 400_3815_12_1358485896006.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F961271B16FC007D008026AE /* 400_3815_12_1358485896006.mp4 */; };
 		F9BEE60C16F8140D00941DBE /* UIImageView+Clipped.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BEE60B16F8140D00941DBE /* UIImageView+Clipped.m */; };
 		F9D3476D16C0F3A7009F352C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D3476C16C0F3A7009F352C /* UIKit.framework */; };
 		F9D3476F16C0F3A7009F352C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D3476E16C0F3A7009F352C /* Foundation.framework */; };
@@ -80,6 +83,10 @@
 		F961270416FACF0D008026AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F961270D16FAEF70008026AE /* VDShareKitConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDShareKitConfigurator.h; sourceTree = "<group>"; };
 		F961270E16FAEF70008026AE /* VDShareKitConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDShareKitConfigurator.m; sourceTree = "<group>"; };
+		F961271016FBF4AE008026AE /* VDVideoPlayerDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDVideoPlayerDemoViewController.h; sourceTree = "<group>"; };
+		F961271116FBF4AE008026AE /* VDVideoPlayerDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDVideoPlayerDemoViewController.m; sourceTree = "<group>"; };
+		F961271716FBF712008026AE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		F961271B16FC007D008026AE /* 400_3815_12_1358485896006.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 400_3815_12_1358485896006.mp4; sourceTree = "<group>"; };
 		F9BEE60A16F8140D00941DBE /* UIImageView+Clipped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Clipped.h"; sourceTree = "<group>"; };
 		F9BEE60B16F8140D00941DBE /* UIImageView+Clipped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Clipped.m"; sourceTree = "<group>"; };
 		F9D3476916C0F3A7009F352C /* Vdemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vdemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F961271816FBF712008026AE /* MediaPlayer.framework in Frameworks */,
 				F912463D16F95226009679C4 /* AssetsLibrary.framework in Frameworks */,
 				F912463B16F9520E009679C4 /* QuartzCore.framework in Frameworks */,
 				F9D3476D16C0F3A7009F352C /* UIKit.framework in Frameworks */,
@@ -190,6 +198,7 @@
 		F948ECB316E44E10005BB638 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F961271B16FC007D008026AE /* 400_3815_12_1358485896006.mp4 */,
 				F96126FF16FAAA70008026AE /* PAV.bundle */,
 				F9D3479816C0FBDF009F352C /* Constant.h */,
 				F9D3479616C0F9D6009F352C /* Menu.plist */,
@@ -256,6 +265,7 @@
 		F9D3476B16C0F3A7009F352C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F961271716FBF712008026AE /* MediaPlayer.framework */,
 				F912463C16F95226009679C4 /* AssetsLibrary.framework */,
 				F912463A16F9520E009679C4 /* QuartzCore.framework */,
 				F9D3476C16C0F3A7009F352C /* UIKit.framework */,
@@ -311,6 +321,8 @@
 				F9035D1E16F05CC000DABD67 /* VDScrollDemoViewController.m */,
 				F96126F416FAA65C008026AE /* VDEditImageDemoViewController.h */,
 				F96126F516FAA65C008026AE /* VDEditImageDemoViewController.m */,
+				F961271016FBF4AE008026AE /* VDVideoPlayerDemoViewController.h */,
+				F961271116FBF4AE008026AE /* VDVideoPlayerDemoViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -428,6 +440,7 @@
 				F912464116F95B9E009679C4 /* Pic.bundle in Resources */,
 				F961270016FAAA70008026AE /* PAV.bundle in Resources */,
 				F961270516FACF0D008026AE /* Localizable.strings in Resources */,
+				F961271C16FC007D008026AE /* 400_3815_12_1358485896006.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +489,7 @@
 				1C8DCB0C16F8B78A00B872DF /* VIcImageViewController.m in Sources */,
 				F96126F616FAA65C008026AE /* VDEditImageDemoViewController.m in Sources */,
 				F961270F16FAEF70008026AE /* VDShareKitConfigurator.m in Sources */,
+				F961271216FBF4AE008026AE /* VDVideoPlayerDemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

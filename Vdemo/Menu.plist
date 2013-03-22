@@ -32,5 +32,11 @@
 		<key>updateTime</key>
 		<string>2013-03-21</string>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>VideoPlayerDemoViewController</string>
+		<key>updateTime</key>
+		<string>2013-03-22</string>
+	</dict>
 </array>
 </plist>

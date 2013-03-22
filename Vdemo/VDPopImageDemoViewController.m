@@ -35,7 +35,7 @@ NSString *path = [[NSBundle mainBundle] pathForResource:@"images" ofType:@"png"]
     self.popImageView.baseVC = self;
     self.popImageView.frame = CGRectMake(100, 100, 100, 100);
     //need to change
-    self.popImageView.image = [UIImage imageNamed:@"PAV.bundle/PAV.bundle/dj.png"];
+    self.popImageView.image = [UIImage imageNamed:@"PAV.bundle/dj.png"];
     [self.popImageView resetImageClipped];
     [self.view addSubview:self.popImageView];
 	// Do any additional setup after loading the view.

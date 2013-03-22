@@ -12,6 +12,7 @@
 #import "VDShareKitDemoViewController.h"
 #import "VDScrollDemoViewController.h"
 #import "VDEditImageDemoViewController.h"
+#import "VDVideoPlayerDemoViewController.h"
 
 @interface VDViewController ()
 
@@ -100,6 +101,12 @@
         case 4: {
             VDEditImageDemoViewController *vdEditImageDemoVC = [[VDEditImageDemoViewController alloc] init];
             [self.navigationController pushViewController:vdEditImageDemoVC animated:YES];
+            break;
+        }
+            
+        case 5: {
+            VDVideoPlayerDemoViewController *vdVideoPlayerDemoVC = [[VDVideoPlayerDemoViewController alloc] init];
+            [self.navigationController pushViewController:vdVideoPlayerDemoVC animated:YES];
             break;
         }
             
