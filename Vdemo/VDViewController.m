@@ -13,6 +13,7 @@
 #import "VDScrollDemoViewController.h"
 #import "VDEditImageDemoViewController.h"
 #import "VDVideoPlayerDemoViewController.h"
+#import "VDRefreshDemoViewController.h"
 
 @interface VDViewController ()
 
@@ -107,6 +108,12 @@
         case 5: {
             VDVideoPlayerDemoViewController *vdVideoPlayerDemoVC = [[VDVideoPlayerDemoViewController alloc] init];
             [self.navigationController pushViewController:vdVideoPlayerDemoVC animated:YES];
+            break;
+        }
+            
+        case 6: {
+            VDRefreshDemoViewController *vdRefreshDemoVC = [[VDRefreshDemoViewController alloc] init];
+            [self.navigationController pushViewController:vdRefreshDemoVC animated:YES];
             break;
         }
             

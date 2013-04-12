@@ -38,5 +38,11 @@
 		<key>updateTime</key>
 		<string>2013-03-22</string>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>RefreshTableDemoViewController</string>
+		<key>updateTime</key>
+		<string>2013-04-01</string>
+	</dict>
 </array>
 </plist>

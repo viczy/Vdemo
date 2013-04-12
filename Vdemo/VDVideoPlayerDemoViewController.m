@@ -44,7 +44,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        //
     }
     return self;
 }
@@ -55,28 +55,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [self.view addSubview:self.videoView];
+	self.videoView.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+44.f, self.view.frame.size.width, self.view.frame.size.height-44.f);
+//    [self.view addSubview:self.mediaControlView];
     
-    [self.view addSubview:self.videoView];
-	
-    [self.view addSubview:self.mediaControlView];
-    
-    NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"400_3815_12_1358485896006" ofType:@"mp4" inDirectory:@"PAV.bundle"];
-    self.moviePlayer.contentURL = [NSURL URLWithString:videoPath];
+    NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"animal" ofType:@"mp4" inDirectory:@"PAV.bundle"];
+    self.moviePlayer.contentURL = [NSURL fileURLWithPath:videoPath];
     [self.moviePlayer prepareToPlay];
     [self.moviePlayer play];
-    
-    MPMoviePlayerViewController *moviePlayerViewController = [[MPMoviePlayerViewController alloc] init];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"400_3815_12_1358485896006.mp4" ofType:nil];
-    moviePlayerViewController.moviePlayer.contentURL = [NSURL URLWithString:path];
-    [moviePlayerViewController.moviePlayer play];
-    [self.view addSubview:moviePlayerViewController.view];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft animated:YES];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:YES];
+    [super viewDidDisappear:animated];
 }
 
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Orientation
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    BOOL autorotate = UIDeviceOrientationIsLandscape(interfaceOrientation);
+    return autorotate;
 }
 
 @end

@@ -16,6 +16,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //custom controls
+//    [self applyStylesheet];
+    
     //for sharekit
     DefaultSHKConfigurator *configurator = [[VDShareKitConfigurator alloc] init];
     [SHKConfiguration sharedInstanceWithConfigurator:configurator];
@@ -55,5 +58,94 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - Stylesheet
+
+- (void)applyStylesheet
+{
+    // Navigation bar
+    UINavigationBar *navigationBar = [UINavigationBar appearance];
+    
+    [navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bg.png"] forBarMetrics:UIBarMetricsDefault];
+    [navigationBar setTitleVerticalPositionAdjustment:-1.0f forBarMetrics:UIBarMetricsDefault];
+    [navigationBar setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                           [UIFont systemFontOfSize:20.0f], UITextAttributeFont,
+                                           [UIColor colorWithWhite:0.0f alpha:0.2f], UITextAttributeTextShadowColor,
+                                           [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)], UITextAttributeTextShadowOffset,
+                                           [UIColor whiteColor], UITextAttributeTextColor,
+                                           nil]];
+    
+    // Navigation bar mini
+    [navigationBar setTitleVerticalPositionAdjustment:-2.0f forBarMetrics:UIBarMetricsLandscapePhone];
+    [navigationBar setBackgroundImage:[UIImage imageNamed:@"nav-background-mini"] forBarMetrics:UIBarMetricsLandscapePhone];
+    
+    // Navigation button
+    NSDictionary *barButtonTitleTextAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                                  [UIFont systemFontOfSize:14.0f], UITextAttributeFont,
+                                                  [UIColor colorWithWhite:0.0f alpha:0.2f], UITextAttributeTextShadowColor,
+                                                  [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)], UITextAttributeTextShadowOffset,
+                                                  nil];
+    
+    // Navigation Bar Title
+    UIBarButtonItem *barButton = [UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil];
+    barButton.tintColor  = [UIColor darkGrayColor];
+    
+    [barButton setTitlePositionAdjustment:UIOffsetMake(0.0f, 1.0f) forBarMetrics:UIBarMetricsDefault];
+    [barButton setTitleTextAttributes:barButtonTitleTextAttributes forState:UIControlStateNormal];
+    [barButton setTitleTextAttributes:barButtonTitleTextAttributes forState:UIControlStateHighlighted];
+    
+    
+    // Navigation back button
+    [barButton setBackButtonTitlePositionAdjustment:UIOffsetMake(2.0f, -2.0f) forBarMetrics:UIBarMetricsDefault];
+    
+    // Navigation button mini
+    [barButton setTitlePositionAdjustment:UIOffsetMake(0.0f, 1.0f) forBarMetrics:UIBarMetricsLandscapePhone];
+    
+    // Navigation back button mini
+    [barButton setBackButtonTitlePositionAdjustment:UIOffsetMake(2.0f, -2.0f) forBarMetrics:UIBarMetricsLandscapePhone];
+    
+    // Toolbar
+    UIToolbar *toolbar = [UIToolbar appearance];
+    [toolbar setBackgroundImage:[UIImage imageNamed:@"navigation-background"] forToolbarPosition:UIToolbarPositionTop barMetrics:UIBarMetricsDefault];
+    [toolbar setBackgroundImage:[UIImage imageNamed:@"toolbar-background"] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
+    
+    // Toolbar mini
+    [toolbar setBackgroundImage:[UIImage imageNamed:@"navigation-background-mini"] forToolbarPosition:UIToolbarPositionTop barMetrics:UIBarMetricsLandscapePhone];
+    [toolbar setBackgroundImage:[UIImage imageNamed:@"toolbar-background-mini"] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsLandscapePhone];
+    
+    // tab bar custom appearance.
+    UITabBar *tabBar = [UITabBar appearance];
+    tabBar.tintColor = [UIColor darkGrayColor];
+    tabBar.backgroundColor = [UIColor clearColor];
+    tabBar.selectionIndicatorImage = [UIImage imageNamed:@"tabbar_selection"];
+    tabBar.selectedImageTintColor = [UIColor redColor];
+    // Remove the shadow gradient line at top tabbar
+    //    tabBar.shadowImage = [UIImage imageNamed:@"tabbar_transparent_shadow.png"];
+    
+    // Custom the color and font in tab bar
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIColor whiteColor],
+                                                       UITextAttributeTextColor,
+                                                       [UIFont fontWithName:@"ProximaNova-Semibold" size:0.0],
+                                                       UITextAttributeFont, nil]
+                                             forState:UIControlStateHighlighted];
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIColor whiteColor], UITextAttributeTextColor,
+                                                       // [UIColor grayColor], UITextAttributeTextShadowColor,
+                                                       [UIFont fontWithName:@"ProximaNova-Semibold" size:0.0], UITextAttributeFont,
+                                                       nil]
+                                             forState:UIControlStateNormal];
+    
+    // Customizing the switch control
+    [[UISwitch appearance] setOnTintColor:[UIColor darkGrayColor]];
+    //    [[UISwitch appearance] setTintColor:[UIColor MCYellowColor]];
+    //    [[UISwitch appearance] setThumbTintColor:[UIColor MCTextBlueColor]];
+    //
+    //    // Customizing the switch text
+    //    [[UISwitch appearance] setOnImage:[UIImage imageNamed:@"yesSwitch"]];
+    //    [[UISwitch appearance] setOffImage:[UIImage imageNamed:@"noSwitch"]];
+}
+
 
 @end

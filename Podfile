@@ -5,3 +5,5 @@ pod 'JSONKit'
 pod 'AFNetworking'
 
 pod 'ShareKit'
+
+pod 'EGOTableViewPullRefresh'

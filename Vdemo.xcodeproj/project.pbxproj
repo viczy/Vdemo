@@ -14,6 +14,8 @@
 		1C8DCAFD16F8B78A00B872DF /* UICliper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DCAE616F8B78A00B872DF /* UICliper.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
 		1C8DCB0C16F8B78A00B872DF /* VIcImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DCAF816F8B78A00B872DF /* VIcImageViewController.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
 		E0812737ECD1404B92D5D84D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC228876CB17435F86257E2C /* libPods.a */; };
+		F90349411709602F002D4577 /* VDRefreshDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F90349401709602F002D4577 /* VDRefreshDemoViewController.m */; };
+		F90349451709610A002D4577 /* VDRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F90349441709610A002D4577 /* VDRefreshTableView.m */; };
 		F9035AF216F0160B00DABD67 /* VDShareKitDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9035AF116F0160B00DABD67 /* VDShareKitDemoViewController.m */; };
 		F9035D1F16F05CC000DABD67 /* VDScrollDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9035D1E16F05CC000DABD67 /* VDScrollDemoViewController.m */; };
 		F912463B16F9520E009679C4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F912463A16F9520E009679C4 /* QuartzCore.framework */; };
@@ -28,7 +30,8 @@
 		F961270F16FAEF70008026AE /* VDShareKitConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F961270E16FAEF70008026AE /* VDShareKitConfigurator.m */; };
 		F961271216FBF4AE008026AE /* VDVideoPlayerDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F961271116FBF4AE008026AE /* VDVideoPlayerDemoViewController.m */; };
 		F961271816FBF712008026AE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F961271716FBF712008026AE /* MediaPlayer.framework */; };
-		F961271C16FC007D008026AE /* 400_3815_12_1358485896006.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F961271B16FC007D008026AE /* 400_3815_12_1358485896006.mp4 */; };
+		F961271C16FC007D008026AE /* animal.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F961271B16FC007D008026AE /* animal.mp4 */; };
+		F99C90FC1717F007002DFB3B /* lantop.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F99C90FB1717F007002DFB3B /* lantop.mp4 */; };
 		F9BEE60C16F8140D00941DBE /* UIImageView+Clipped.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BEE60B16F8140D00941DBE /* UIImageView+Clipped.m */; };
 		F9D3476D16C0F3A7009F352C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D3476C16C0F3A7009F352C /* UIKit.framework */; };
 		F9D3476F16C0F3A7009F352C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D3476E16C0F3A7009F352C /* Foundation.framework */; };
@@ -66,6 +69,10 @@
 		1C8DCAF816F8B78A00B872DF /* VIcImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIcImageViewController.m; path = VicImageController/VIcImageViewController.m; sourceTree = "<group>"; };
 		CC228876CB17435F86257E2C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF258B2731CE4390AA8BE695 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		F903493F1709602F002D4577 /* VDRefreshDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDRefreshDemoViewController.h; sourceTree = "<group>"; };
+		F90349401709602F002D4577 /* VDRefreshDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDRefreshDemoViewController.m; sourceTree = "<group>"; };
+		F90349431709610A002D4577 /* VDRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDRefreshTableView.h; sourceTree = "<group>"; };
+		F90349441709610A002D4577 /* VDRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDRefreshTableView.m; sourceTree = "<group>"; };
 		F9035AF016F0160B00DABD67 /* VDShareKitDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDShareKitDemoViewController.h; sourceTree = "<group>"; };
 		F9035AF116F0160B00DABD67 /* VDShareKitDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDShareKitDemoViewController.m; sourceTree = "<group>"; };
 		F9035D1D16F05CC000DABD67 /* VDScrollDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDScrollDemoViewController.h; sourceTree = "<group>"; };
@@ -86,7 +93,8 @@
 		F961271016FBF4AE008026AE /* VDVideoPlayerDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDVideoPlayerDemoViewController.h; sourceTree = "<group>"; };
 		F961271116FBF4AE008026AE /* VDVideoPlayerDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDVideoPlayerDemoViewController.m; sourceTree = "<group>"; };
 		F961271716FBF712008026AE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		F961271B16FC007D008026AE /* 400_3815_12_1358485896006.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 400_3815_12_1358485896006.mp4; sourceTree = "<group>"; };
+		F961271B16FC007D008026AE /* animal.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = animal.mp4; sourceTree = "<group>"; };
+		F99C90FB1717F007002DFB3B /* lantop.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lantop.mp4; sourceTree = "<group>"; };
 		F9BEE60A16F8140D00941DBE /* UIImageView+Clipped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Clipped.h"; sourceTree = "<group>"; };
 		F9BEE60B16F8140D00941DBE /* UIImageView+Clipped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Clipped.m"; sourceTree = "<group>"; };
 		F9D3476916C0F3A7009F352C /* Vdemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vdemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +194,15 @@
 			path = VicImageController/Resource;
 			sourceTree = "<group>";
 		};
+		F9034942170960BB002D4577 /* VDRefreshTableView */ = {
+			isa = PBXGroup;
+			children = (
+				F90349431709610A002D4577 /* VDRefreshTableView.h */,
+				F90349441709610A002D4577 /* VDRefreshTableView.m */,
+			);
+			name = VDRefreshTableView;
+			sourceTree = "<group>";
+		};
 		F919735016E59D3700B72284 /* VDMediaPlayerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,7 +215,8 @@
 		F948ECB316E44E10005BB638 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F961271B16FC007D008026AE /* 400_3815_12_1358485896006.mp4 */,
+				F99C90FB1717F007002DFB3B /* lantop.mp4 */,
+				F961271B16FC007D008026AE /* animal.mp4 */,
 				F96126FF16FAAA70008026AE /* PAV.bundle */,
 				F9D3479816C0FBDF009F352C /* Constant.h */,
 				F9D3479616C0F9D6009F352C /* Menu.plist */,
@@ -223,13 +241,6 @@
 			name = Vendor;
 			sourceTree = "<group>";
 		};
-		F99A541616E486B400D06DE1 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
 		F9BEE60516F8130900941DBE /* UIImageView+Clipped */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,7 +255,6 @@
 			children = (
 				F919734C16E58D1B00B72284 /* Icon@2x.png */,
 				F919734A16E58D1500B72284 /* Icon.png */,
-				F99A541616E486B400D06DE1 /* Library */,
 				F97563C716C1FA430093198F /* Vendor */,
 				F948ECB316E44E10005BB638 /* Resources */,
 				F9D3477216C0F3A7009F352C /* Vdemo */,
@@ -323,6 +333,8 @@
 				F96126F516FAA65C008026AE /* VDEditImageDemoViewController.m */,
 				F961271016FBF4AE008026AE /* VDVideoPlayerDemoViewController.h */,
 				F961271116FBF4AE008026AE /* VDVideoPlayerDemoViewController.m */,
+				F903493F1709602F002D4577 /* VDRefreshDemoViewController.h */,
+				F90349401709602F002D4577 /* VDRefreshDemoViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -346,6 +358,7 @@
 		F9D3479C16C100F2009F352C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F9034942170960BB002D4577 /* VDRefreshTableView */,
 				F961270C16FAEF23008026AE /* VDShareKitConfigurator */,
 				1C8DCAD916F8B75900B872DF /* VDImageEditViewController */,
 				F9BEE60516F8130900941DBE /* UIImageView+Clipped */,
@@ -440,7 +453,8 @@
 				F912464116F95B9E009679C4 /* Pic.bundle in Resources */,
 				F961270016FAAA70008026AE /* PAV.bundle in Resources */,
 				F961270516FACF0D008026AE /* Localizable.strings in Resources */,
-				F961271C16FC007D008026AE /* 400_3815_12_1358485896006.mp4 in Resources */,
+				F961271C16FC007D008026AE /* animal.mp4 in Resources */,
+				F99C90FC1717F007002DFB3B /* lantop.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +504,8 @@
 				F96126F616FAA65C008026AE /* VDEditImageDemoViewController.m in Sources */,
 				F961270F16FAEF70008026AE /* VDShareKitConfigurator.m in Sources */,
 				F961271216FBF4AE008026AE /* VDVideoPlayerDemoViewController.m in Sources */,
+				F90349411709602F002D4577 /* VDRefreshDemoViewController.m in Sources */,
+				F90349451709610A002D4577 /* VDRefreshTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +603,7 @@
 				GCC_PREFIX_HEADER = "Vdemo/Vdemo-Prefix.pch";
 				INFOPLIST_FILE = "Vdemo/Vdemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -599,6 +616,7 @@
 				GCC_PREFIX_HEADER = "Vdemo/Vdemo-Prefix.pch";
 				INFOPLIST_FILE = "Vdemo/Vdemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
