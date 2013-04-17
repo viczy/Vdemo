@@ -7,3 +7,5 @@ pod 'AFNetworking'
 pod 'ShareKit'
 
 pod 'EGOTableViewPullRefresh'
+
+pod 'VCommon'
