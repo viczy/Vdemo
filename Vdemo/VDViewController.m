@@ -36,7 +36,7 @@
     self.navigationItem.title = @"VDemo";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    NSString *sourcePath = [VDCommon getBundlePathWithFileName:MenuName];
+    NSString *sourcePath = [VCommon getBundlePathWithFileName:MenuName];
     self.source = [NSArray arrayWithContentsOfFile:sourcePath];
 }
 
