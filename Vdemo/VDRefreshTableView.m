@@ -11,6 +11,7 @@
 @interface VDRefreshTableView ()
 
 @property (nonatomic, strong) EGORefreshTableHeaderView *pullRefreshView;
+@property (nonatomic, strong) VDRefreshTableFooterView *loadMoreView;
 @property (nonatomic, assign) BOOL isLoading;
 
 @end
@@ -26,31 +27,115 @@
     return _pullRefreshView;
 }
 
+- (VDRefreshTableFooterView*)loadMoreView {
+    if (!_loadMoreView) {
+        _loadMoreView = [[VDRefreshTableFooterView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.bounds.size.width, 44.f)];
+        _loadMoreView.delegate = self;
+    }
+    return _loadMoreView;
+}
+
+- (void)setTableMode:(VDRefreshTableViewMode)tableMode {
+    switch (tableMode) {
+        case VDRefreshTableViewModeNormal: {
+            [self addSubview:self.pullRefreshView];
+            [self.pullRefreshView refreshLastUpdatedDate];
+            self.tableFooterView = self.loadMoreView;
+        }
+            break;
+            
+        case VDRefreshTableViewModeJustLatest: {
+            [self addSubview:self.pullRefreshView];
+            [self.pullRefreshView refreshLastUpdatedDate];
+            self.tableFooterView = nil;
+        }
+            break;
+            
+        case VDRefreshTableViewModeJustLast: {
+            [self.pullRefreshView removeFromSuperview];
+            self.tableFooterView = self.loadMoreView;
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 #pragma mark - NSObject
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self addSubview:self.pullRefreshView];
-        [self.pullRefreshView refreshLastUpdatedDate];
+        self.tableMode = VDRefreshTableViewModeNormal;
     }
     return self;
 }
 
-#pragma mark -
-#pragma mark UIScrollViewDelegate Methods
+#pragma mark - Actions Public
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-	
+- (void)VDScrollViewDidScroll:(UIScrollView *)scrollView {
 	[self.pullRefreshView egoRefreshScrollViewDidScroll:scrollView];
-    
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-	
+- (void)VDScrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
 	[self.pullRefreshView egoRefreshScrollViewDidEndDragging:scrollView];
-	
+    if(scrollView.contentOffset.y-100.f > ((scrollView.contentSize.height - scrollView.frame.size.height)))
+    {
+        [self loadMore];
+    }
+}
+
+- (void)setLoadOver:(VDRefreshTableViewLoadedState)loadedState {
+    switch (loadedState) {
+        case VDRefreshTableViewLoadedStateLatest: {
+            [self doneLoadingTableViewData];
+        }
+            break;
+            
+        case VDRefreshTableViewLoadedStateLastEnable: {
+            [self loadMoreOver];
+            self.loadMoreView.state = VDRefreshTableViewStateNormal;
+        }
+            break;
+            
+        case VDRefreshTableViewLoadedStateLastDisable: {
+            [self loadMoreOver];
+            self.loadMoreView.state = VDRefreshTableFooterViewStateEnd;
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark - Actions Private
+
+- (void)loadMore {
+    if (!self.isLoading) {
+        [self.delegateRefresh VDRefreshTableViewWillBeginLoadingLast];
+        self.isLoading = YES;
+        self.loadMoreView.state = VDRefreshTableFooterViewStateLoading;
+    }
+}
+
+- (void)loadMoreOver {
+    self.isLoading = NO;
+}
+
+#pragma mark -
+#pragma mark Data Source Loading / Reloading Methods
+
+- (void)reloadTableViewDataSource{
+	self.isLoading = YES;
+    [self.delegateRefresh VDRefreshTableViewWillBeginLoadingLatest];
+}
+
+- (void)doneLoadingTableViewData{
+	self.isLoading = NO;
+	[self.pullRefreshView egoRefreshScrollViewDataSourceDidFinishedLoading:self];
 }
 
 #pragma mark - EGORefreshTableHeaderDelegate Methods
@@ -58,8 +143,7 @@
 // 开始刷新时回调
 - (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view
 {
-    self.isLoading = YES;
-    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
+    [self reloadTableViewDataSource];
 }
 
 // 下拉时回调
@@ -72,6 +156,12 @@
 - (NSDate *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view
 {
     return [NSDate date]; 
+}
+
+#pragma mark - VDRefreshTableFooterViewDelegate
+
+- (void)footerViewButtonAction {
+    [self loadMore];
 }
 
 @end

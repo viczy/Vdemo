@@ -11,3 +11,9 @@
 @interface VDScrollDemoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @end
+
+@interface tableHeaderView : UIView
+
+@property (nonatomic, strong) UITableView *contentTableView;
+
+@end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VDRefreshTableView.h"
 
-@interface VDRefreshDemoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface VDRefreshDemoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, VDRefreshTableViewDelegate>
 
 @end

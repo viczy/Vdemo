@@ -7,7 +7,6 @@
 //
 
 #import "VDRefreshDemoViewController.h"
-#import "VDRefreshTableView.h"
 
 @interface VDRefreshDemoViewController ()
 
@@ -36,6 +35,8 @@
     [super viewDidLoad];
 	
     self.refreshTableView = [[VDRefreshTableView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.bounds.size.width, self.view.bounds.size.height)];
+    self.refreshTableView.delegateRefresh = self;
+    self.refreshTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
     self.refreshTableView.dataSource = self;
     self.refreshTableView.delegate = self;
     [self.view addSubview:self.refreshTableView];
@@ -89,7 +90,40 @@
     return cell.frame.size.height;
 }
 
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.refreshTableView VDScrollViewDidScroll:scrollView];
+}
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+	[self.refreshTableView VDScrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+}
+
+#pragma mark - VDRefreshTableViewDelegate
+
+- (void)VDRefreshTableViewWillBeginLoadingLatest {
+    //begin get latest data
+    [self performSelector:@selector(loadLatestOver) withObject:nil afterDelay:3.0];
+}
+
+- (void)VDRefreshTableViewWillBeginLoadingLast {
+    //begin get lates data
+//    [self performSelector:@selector(loadLastEnable) withObject:nil afterDelay:3.0];
+    [self performSelector:@selector(loadLastDisable) withObject:nil afterDelay:3.0];
+}
+
+- (void)loadLatestOver {
+    [self.refreshTableView setLoadOver:VDRefreshTableViewLoadedStateLatest];
+}
+
+- (void)loadLastEnable {
+    [self.refreshTableView setLoadOver:VDRefreshTableViewLoadedStateLastEnable];
+}
+
+- (void)loadLastDisable {
+    [self.refreshTableView setLoadOver:VDRefreshTableViewLoadedStateLastDisable];
+}
 
 @end

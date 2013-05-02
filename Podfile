@@ -4,8 +4,6 @@ pod 'JSONKit'
 
 pod 'AFNetworking'
 
-pod 'ShareKit'
-
-pod 'EGOTableViewPullRefresh'
-
 pod 'VCommon'
+
+pod 'ShareKit','2.1'

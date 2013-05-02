@@ -47,6 +47,8 @@
 		F9D3479716C0F9D6009F352C /* Menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9D3479616C0F9D6009F352C /* Menu.plist */; };
 		F9D347A216C10148009F352C /* VDPageRefreshDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D347A116C10148009F352C /* VDPageRefreshDemoViewController.m */; };
 		F9D347A516C101ED009F352C /* VDPageRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D347A416C101ED009F352C /* VDPageRefreshView.m */; };
+		F9EA40DD17320E730092404F /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EA40DC17320E730092404F /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		F9EA40E0173210950092404F /* VDRefreshTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EA40DF173210950092404F /* VDRefreshTableFooterView.m */; };
 		F9F0C64316E0A08F003253AD /* VDPopImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F0C64216E0A08F003253AD /* VDPopImageView.m */; };
 		F9F0C64616E0A13A003253AD /* VDLoadImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F0C64516E0A13A003253AD /* VDLoadImageViewController.m */; };
 		F9F0C64916E0AE4C003253AD /* VDPopImageDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F0C64816E0AE4C003253AD /* VDPopImageDemoViewController.m */; };
@@ -118,6 +120,10 @@
 		F9D347A116C10148009F352C /* VDPageRefreshDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDPageRefreshDemoViewController.m; sourceTree = "<group>"; };
 		F9D347A316C101ED009F352C /* VDPageRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDPageRefreshView.h; sourceTree = "<group>"; };
 		F9D347A416C101ED009F352C /* VDPageRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDPageRefreshView.m; sourceTree = "<group>"; };
+		F9EA40DB17320E730092404F /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		F9EA40DC17320E730092404F /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		F9EA40DE173210950092404F /* VDRefreshTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDRefreshTableFooterView.h; sourceTree = "<group>"; };
+		F9EA40DF173210950092404F /* VDRefreshTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDRefreshTableFooterView.m; sourceTree = "<group>"; };
 		F9F0C64116E0A08F003253AD /* VDPopImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDPopImageView.h; sourceTree = "<group>"; };
 		F9F0C64216E0A08F003253AD /* VDPopImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDPopImageView.m; sourceTree = "<group>"; };
 		F9F0C64416E0A13A003253AD /* VDLoadImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDLoadImageViewController.h; sourceTree = "<group>"; };
@@ -194,8 +200,12 @@
 		F9034942170960BB002D4577 /* VDRefreshTableView */ = {
 			isa = PBXGroup;
 			children = (
+				F9EA40DB17320E730092404F /* EGORefreshTableHeaderView.h */,
+				F9EA40DC17320E730092404F /* EGORefreshTableHeaderView.m */,
 				F90349431709610A002D4577 /* VDRefreshTableView.h */,
 				F90349441709610A002D4577 /* VDRefreshTableView.m */,
+				F9EA40DE173210950092404F /* VDRefreshTableFooterView.h */,
+				F9EA40DF173210950092404F /* VDRefreshTableFooterView.m */,
 			);
 			name = VDRefreshTableView;
 			sourceTree = "<group>";
@@ -492,6 +502,8 @@
 				F961271216FBF4AE008026AE /* VDVideoPlayerDemoViewController.m in Sources */,
 				F90349411709602F002D4577 /* VDRefreshDemoViewController.m in Sources */,
 				F90349451709610A002D4577 /* VDRefreshTableView.m in Sources */,
+				F9EA40DD17320E730092404F /* EGORefreshTableHeaderView.m in Sources */,
+				F9EA40E0173210950092404F /* VDRefreshTableFooterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +600,35 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vdemo/Vdemo-Prefix.pch";
 				INFOPLIST_FILE = "Vdemo/Vdemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lsqlite3.0",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					CoreLocation,
+					"-framework",
+					Foundation,
+					"-framework",
+					MessageUI,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					StoreKit,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					Twitter,
+					"-weak_framework",
+					Accounts,
+					"-weak_framework",
+					AdSupport,
+					"-weak_framework",
+					Social,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}/**";
 				WRAPPER_EXTENSION = app;
@@ -601,6 +642,35 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vdemo/Vdemo-Prefix.pch";
 				INFOPLIST_FILE = "Vdemo/Vdemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lsqlite3.0",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					CoreLocation,
+					"-framework",
+					Foundation,
+					"-framework",
+					MessageUI,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					StoreKit,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					Twitter,
+					"-weak_framework",
+					Accounts,
+					"-weak_framework",
+					AdSupport,
+					"-weak_framework",
+					Social,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}/**";
 				WRAPPER_EXTENSION = app;

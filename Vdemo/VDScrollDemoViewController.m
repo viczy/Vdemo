@@ -23,7 +23,7 @@ static NSString *const keyPath = @"contentOffset";
 
 @property (nonatomic, strong) UITableView *tableviewContainer;
 @property (nonatomic, strong) UITableView *tableviewList;
-@property (nonatomic, strong) UIView *tableHeader;
+@property (nonatomic, strong) tableHeaderView *tableHeader;
 @property (nonatomic, strong) UIView *sectionView;
 @property (nonatomic, strong) NSMutableArray *sourceArray;
 @property (nonatomic, assign) BOOL direction;
@@ -32,9 +32,10 @@ static NSString *const keyPath = @"contentOffset";
 
 @implementation VDScrollDemoViewController
 
-- (UIView*)tableHeader {
+- (tableHeaderView*)tableHeader {
     if (!_tableHeader) {
-        _tableHeader = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.frame.size.width, headerHeight)];
+        _tableHeader = [[tableHeaderView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.frame.size.width, headerHeight)];
+        _tableHeader.contentTableView = self.tableviewList;
         _tableHeader.backgroundColor = [UIColor purpleColor];
     }
     return _tableHeader;
@@ -227,6 +228,16 @@ static NSString *const keyPath = @"contentOffset";
         [self.tableviewContainer setContentOffset:CGPointMake(0, headerHeight) animated:YES];
     else
         [self.tableviewContainer setContentOffset:CGPointMake(0, 0) animated:YES];
+}
+
+@end
+
+
+@implementation tableHeaderView
+
+- (UIView*)hitTest:(CGPoint)point withEvent:(UIEvent*)event
+{
+    return [self.contentTableView hitTest:point withEvent:event];
 }
 
 @end
