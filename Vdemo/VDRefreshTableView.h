@@ -39,6 +39,9 @@ typedef enum {
 @required
 - (void)VDRefreshTableViewWillBeginLoadingLast;
 
+@optional
+- (UIView*)VDRefreshTableViewErrorView;
+
 @end
 
 @interface VDRefreshTableView : UITableView <EGORefreshTableHeaderDelegate,
@@ -47,11 +50,10 @@ typedef enum {
 @property (nonatomic, weak) id <VDRefreshTableViewDelegate> delegateRefresh;
 @property (nonatomic, assign) VDRefreshTableViewState tableState;
 @property (nonatomic, assign) VDRefreshTableViewMode tableMode;
+@property (nonatomic, assign) VDRefreshTableViewLoadedState loadOverState;
 
 - (void)VDScrollViewDidScroll:(UIScrollView *)scrollView;
 
 - (void)VDScrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
-
-- (void)setLoadOver:(VDRefreshTableViewLoadedState)loadedState;
 
 @end

@@ -114,16 +114,20 @@
     [self performSelector:@selector(loadLastDisable) withObject:nil afterDelay:3.0];
 }
 
+- (UIView*)VDRefreshTableViewErrorView {
+    return nil;
+}
+
 - (void)loadLatestOver {
-    [self.refreshTableView setLoadOver:VDRefreshTableViewLoadedStateLatest];
+    [self.refreshTableView setLoadOverState:VDRefreshTableViewLoadedStateLatest];
 }
 
 - (void)loadLastEnable {
-    [self.refreshTableView setLoadOver:VDRefreshTableViewLoadedStateLastEnable];
+    [self.refreshTableView setLoadOverState:VDRefreshTableViewLoadedStateLastEnable];
 }
 
 - (void)loadLastDisable {
-    [self.refreshTableView setLoadOver:VDRefreshTableViewLoadedStateLastDisable];
+    [self.refreshTableView setLoadOverState:VDRefreshTableViewLoadedStateLastDisable];
 }
 
 @end

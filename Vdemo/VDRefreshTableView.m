@@ -13,6 +13,7 @@
 @property (nonatomic, strong) EGORefreshTableHeaderView *pullRefreshView;
 @property (nonatomic, strong) VDRefreshTableFooterView *loadMoreView;
 @property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, strong) UIView *viewError;
 
 @end
 
@@ -62,33 +63,25 @@
     }
 }
 
-#pragma mark - NSObject
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.tableMode = VDRefreshTableViewModeNormal;
-    }
-    return self;
-}
-
-#pragma mark - Actions Public
-
-- (void)VDScrollViewDidScroll:(UIScrollView *)scrollView {
-	[self.pullRefreshView egoRefreshScrollViewDidScroll:scrollView];
-}
-
-- (void)VDScrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-	[self.pullRefreshView egoRefreshScrollViewDidEndDragging:scrollView];
-    if(scrollView.contentOffset.y-100.f > ((scrollView.contentSize.height - scrollView.frame.size.height)))
-    {
-        [self loadMore];
+- (void)setTableState:(VDRefreshTableViewState)tableState {
+    switch (tableState) {
+        case VDRefreshTableViewStateNormal: {
+            [self.viewError removeFromSuperview];
+        }
+            break;
+            
+        case VDRefreshTableViewStateError: {
+            [self addSubview:self.viewError];
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 
-- (void)setLoadOver:(VDRefreshTableViewLoadedState)loadedState {
-    switch (loadedState) {
+- (void)setLoadOverState:(VDRefreshTableViewLoadedState)loadOverState {
+    switch (loadOverState) {
         case VDRefreshTableViewLoadedStateLatest: {
             [self doneLoadingTableViewData];
         }
@@ -111,11 +104,43 @@
     }
 }
 
+#pragma mark - NSObject
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.tableMode = VDRefreshTableViewModeNormal;
+        if ([self.delegateRefresh respondsToSelector:@selector(VDRefreshTableViewErrorView)]) {
+            self.viewError = [self.delegateRefresh VDRefreshTableViewErrorView];
+        }
+    }
+    return self;
+}
+
+#pragma mark - Actions Public
+
+- (void)VDScrollViewDidScroll:(UIScrollView *)scrollView {
+	[self.pullRefreshView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)VDScrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+	[self.pullRefreshView egoRefreshScrollViewDidEndDragging:scrollView];
+    if(scrollView.contentOffset.y-100.f > ((scrollView.contentSize.height - scrollView.frame.size.height)))
+    {
+        if (self.loadMoreView.state != VDRefreshTableFooterViewStateEnd) {
+            [self loadMore];
+        }
+    }
+}
+
 #pragma mark - Actions Private
 
 - (void)loadMore {
     if (!self.isLoading) {
-        [self.delegateRefresh VDRefreshTableViewWillBeginLoadingLast];
+        if ([self.delegateRefresh respondsToSelector:@selector(VDRefreshTableViewWillBeginLoadingLast)]) {
+            [self.delegateRefresh VDRefreshTableViewWillBeginLoadingLast];
+        }
         self.isLoading = YES;
         self.loadMoreView.state = VDRefreshTableFooterViewStateLoading;
     }
@@ -130,7 +155,10 @@
 
 - (void)reloadTableViewDataSource{
 	self.isLoading = YES;
-    [self.delegateRefresh VDRefreshTableViewWillBeginLoadingLatest];
+    if ([self.delegateRefresh respondsToSelector:@selector(VDRefreshTableViewWillBeginLoadingLatest)]) {
+        [self.delegateRefresh VDRefreshTableViewWillBeginLoadingLatest];
+    }
+
 }
 
 - (void)doneLoadingTableViewData{
