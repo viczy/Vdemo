@@ -67,11 +67,13 @@
     switch (tableState) {
         case VDRefreshTableViewStateNormal: {
             [self.viewError removeFromSuperview];
+            self.scrollEnabled = YES;
         }
             break;
             
         case VDRefreshTableViewStateError: {
             [self addSubview:self.viewError];
+            self.scrollEnabled = NO;
         }
             break;
             
@@ -111,11 +113,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.tableMode = VDRefreshTableViewModeNormal;
-        if ([self.delegateRefresh respondsToSelector:@selector(VDRefreshTableViewErrorView)]) {
-            self.viewError = [self.delegateRefresh VDRefreshTableViewErrorView];
-        }
     }
     return self;
+}
+
+#pragma mark - UIView
+- (void)drawRect:(CGRect)rect {
+    if ([self.delegateRefresh respondsToSelector:@selector(VDRefreshTableViewErrorView)]) {
+        self.viewError = [self.delegateRefresh VDRefreshTableViewErrorView];
+    }
 }
 
 #pragma mark - Actions Public

@@ -111,11 +111,14 @@
 - (void)VDRefreshTableViewWillBeginLoadingLast {
     //begin get lates data
 //    [self performSelector:@selector(loadLastEnable) withObject:nil afterDelay:3.0];
+    self.refreshTableView.tableState = VDRefreshTableViewStateError;
     [self performSelector:@selector(loadLastDisable) withObject:nil afterDelay:3.0];
 }
 
 - (UIView*)VDRefreshTableViewErrorView {
-    return nil;
+    UIView *view = [[UIView alloc] initWithFrame:self.view.bounds];
+    view.backgroundColor = [UIColor redColor];
+    return view;
 }
 
 - (void)loadLatestOver {
