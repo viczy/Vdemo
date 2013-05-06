@@ -24,6 +24,7 @@
 		F914687E16E6E1EE000503ED /* VDMediaControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = F914687D16E6E1EE000503ED /* VDMediaControlView.m */; };
 		F919734B16E58D1500B72284 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F919734A16E58D1500B72284 /* Icon.png */; };
 		F919734D16E58D1B00B72284 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F919734C16E58D1B00B72284 /* Icon@2x.png */; };
+		F950C30317378D8F00E2770C /* VDHeadTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F950C30217378D8F00E2770C /* VDHeadTableView.m */; };
 		F96126F616FAA65C008026AE /* VDEditImageDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F96126F516FAA65C008026AE /* VDEditImageDemoViewController.m */; };
 		F961270016FAAA70008026AE /* PAV.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F96126FF16FAAA70008026AE /* PAV.bundle */; };
 		F961270516FACF0D008026AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F961270316FACF0D008026AE /* Localizable.strings */; };
@@ -85,6 +86,8 @@
 		F914687D16E6E1EE000503ED /* VDMediaControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMediaControlView.m; sourceTree = "<group>"; };
 		F919734A16E58D1500B72284 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		F919734C16E58D1B00B72284 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		F950C30117378D8F00E2770C /* VDHeadTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDHeadTableView.h; sourceTree = "<group>"; };
+		F950C30217378D8F00E2770C /* VDHeadTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDHeadTableView.m; sourceTree = "<group>"; };
 		F96126F416FAA65C008026AE /* VDEditImageDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEditImageDemoViewController.h; sourceTree = "<group>"; };
 		F96126F516FAA65C008026AE /* VDEditImageDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEditImageDemoViewController.m; sourceTree = "<group>"; };
 		F96126FF16FAAA70008026AE /* PAV.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PAV.bundle; sourceTree = "<group>"; };
@@ -232,6 +235,15 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		F950C30017378CA800E2770C /* VDHeadTableView */ = {
+			isa = PBXGroup;
+			children = (
+				F950C30117378D8F00E2770C /* VDHeadTableView.h */,
+				F950C30217378D8F00E2770C /* VDHeadTableView.m */,
+			);
+			name = VDHeadTableView;
+			sourceTree = "<group>";
+		};
 		F961270C16FAEF23008026AE /* VDShareKitConfigurator */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +367,7 @@
 		F9D3479C16C100F2009F352C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F950C30017378CA800E2770C /* VDHeadTableView */,
 				F9034942170960BB002D4577 /* VDRefreshTableView */,
 				F961270C16FAEF23008026AE /* VDShareKitConfigurator */,
 				1C8DCAD916F8B75900B872DF /* VDImageEditViewController */,
@@ -504,6 +517,7 @@
 				F90349451709610A002D4577 /* VDRefreshTableView.m in Sources */,
 				F9EA40DD17320E730092404F /* EGORefreshTableHeaderView.m in Sources */,
 				F9EA40E0173210950092404F /* VDRefreshTableFooterView.m in Sources */,
+				F950C30317378D8F00E2770C /* VDHeadTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
