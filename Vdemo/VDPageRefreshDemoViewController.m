@@ -16,6 +16,8 @@
 
 @implementation VDPageRefreshDemoViewController
 
+#pragma mark - NSObject
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,6 +30,8 @@
     }
     return self;
 }
+
+#pragma mark - UIViewController
 
 - (void)viewDidLoad
 {
@@ -43,8 +47,7 @@
     [self.pageRefreshView resetCurrentIndex:index];
 }
 
-#pragma mark -
-#pragma mark VDPageRefreshView delegate
+#pragma mark - VDPageRefreshView delegate
 
 //pages
 - (NSUInteger)numberOfPages {
