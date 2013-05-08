@@ -31,12 +31,16 @@
 
 - (void)viewDidLoad
 {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"跳转" style:UIBarButtonItemStylePlain target:self action:@selector(jumpAction)];
     [super viewDidLoad];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
+
+#pragma mark - Actions Private
+
+- (void)jumpAction {
+    NSInteger index = (NSUInteger)arc4random()%6;
+    [self.pageRefreshView resetCurrentIndex:index];
 }
 
 #pragma mark -
@@ -47,26 +51,8 @@
     return 6;
 }
 
-//开始的前两页，不足两页则仅画一页
-- (UIView*)viewForOrigin:(NSInteger)index {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-    switch (index) {
-        case 0:
-            view.backgroundColor = [UIColor redColor];
-            break;
-            
-        case 1:
-            view.backgroundColor = [UIColor yellowColor];
-            break;
-            
-        default:
-            break;
-    }
-    return view;
-}
-
 //翻页的更新页
-- (UIView*)pageChanged:(NSInteger)index {
+- (UIView*)pageViewWithIndex:(NSInteger)index {
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
     switch (index) {
         case 0:

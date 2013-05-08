@@ -57,21 +57,26 @@
     [super viewDidLoad];
 //    [self.view addSubview:self.videoView];
 	self.videoView.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+44.f, self.view.frame.size.width, self.view.frame.size.height-44.f);
+    self.view.backgroundColor = [UIColor blueColor];
 //    [self.view addSubview:self.mediaControlView];
     
     NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"animal" ofType:@"mp4" inDirectory:@"PAV.bundle"];
     self.moviePlayer.contentURL = [NSURL fileURLWithPath:videoPath];
     [self.moviePlayer prepareToPlay];
     [self.moviePlayer play];
+    
+    //设置应用程序的状态栏到指定的方向
+    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
+    self.navigationController.navigationBar.hidden = YES;
+    //view旋转
+    [self.view setTransform:CGAffineTransformMakeRotation(M_PI/2)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft animated:YES];
     [super viewWillAppear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:YES];
     [super viewDidDisappear:animated];
 }
 
@@ -80,8 +85,15 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    BOOL autorotate = UIDeviceOrientationIsLandscape(interfaceOrientation);
-    return autorotate;
+    return NO;
+}
+
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return 0;
 }
 
 @end

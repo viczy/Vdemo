@@ -8,6 +8,7 @@
 
 #import "VDHeadTableView.h"
 
+#define threshold 20
 static NSString *const keyPath = @"contentOffset";
 
 @interface VDHeadTableView ()
@@ -16,6 +17,7 @@ static NSString *const keyPath = @"contentOffset";
 @property (nonatomic, strong) UIView *tableSection;
 @property (nonatomic, strong) UITableView *tableviewContent;
 @property (nonatomic, assign) CGFloat headerHeight;
+@property (nonatomic, assign) BOOL direction;
 
 @end
 
@@ -87,6 +89,12 @@ static NSString *const keyPath = @"contentOffset";
 - (void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
 {
     CGPoint newPoint = [[change valueForKey:NSKeyValueChangeNewKey] CGPointValue];
+    CGPoint oldPoint = [[change valueForKey:NSKeyValueChangeOldKey] CGPointValue];
+    
+    if(oldPoint.y > newPoint.y)
+        self.direction = YES;
+    else
+        self.direction = NO;
     
     if(self.contentOffset.y < self.headerHeight)
     {
@@ -116,6 +124,32 @@ static NSString *const keyPath = @"contentOffset";
         }
     }
 }
+
+#pragma mark - Actions Public
+
+- (void)VDScrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate
+{
+    if(!decelerate)
+    {
+        if(self.contentOffset.y < threshold)
+            [self setContentOffset:CGPointMake(0, 0) animated:YES];
+        else if(self.contentOffset.y > self.headerHeight-threshold)
+            [self setContentOffset:CGPointMake(0, self.headerHeight) animated:YES];
+        else if(self.direction)
+            [self setContentOffset:CGPointMake(0, self.headerHeight) animated:YES];
+        else
+            [self setContentOffset:CGPointMake(0, 0) animated:YES];
+    }
+}
+
+- (void)VDScrollViewDidEndDecelerating:(UIScrollView*)scrollView
+{
+    if(self.direction || self.contentOffset.y == self.headerHeight)
+        [self setContentOffset:CGPointMake(0, self.headerHeight) animated:YES];
+    else
+        [self setContentOffset:CGPointMake(0, 0) animated:YES];
+}
+
 
 #pragma mark - UITableViewDataSource
 

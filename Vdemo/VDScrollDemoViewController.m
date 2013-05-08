@@ -56,6 +56,18 @@
     self.sourceArray = [[NSMutableArray alloc] initWithArray:@[@"vic", @"vic",@"vic", @"vic",@"vic", @"vic",@"vic", @"vic",@"vic", @"vic",@"vic", @"vic",@"vic", @"vic",@"vic", @"vic",@"vic", @"vic",@"vic", @"vic",@"vic", @"vic",@"vic", @"vic",@"vic", @"vic"]];
 }
 
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self.headTableView VDScrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView*)scrollView
+{
+    [self.headTableView VDScrollViewDidEndDecelerating:scrollView];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -99,6 +111,7 @@
     view.backgroundColor = [UIColor redColor];
     return view;
 }
+
 
 
 @end

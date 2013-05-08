@@ -34,6 +34,8 @@
 		F961271C16FC007D008026AE /* animal.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F961271B16FC007D008026AE /* animal.mp4 */; };
 		F99C90FC1717F007002DFB3B /* lantop.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F99C90FB1717F007002DFB3B /* lantop.mp4 */; };
 		F9BEE60C16F8140D00941DBE /* UIImageView+Clipped.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BEE60B16F8140D00941DBE /* UIImageView+Clipped.m */; };
+		F9CB0E941738CBFF00F98EF6 /* UINavigationController+Autorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB0E931738CBFF00F98EF6 /* UINavigationController+Autorotate.m */; };
+		F9CB0E971739E29E00F98EF6 /* VDContentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB0E961739E29E00F98EF6 /* VDContentTableView.m */; };
 		F9D3476D16C0F3A7009F352C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D3476C16C0F3A7009F352C /* UIKit.framework */; };
 		F9D3476F16C0F3A7009F352C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D3476E16C0F3A7009F352C /* Foundation.framework */; };
 		F9D3477116C0F3A7009F352C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D3477016C0F3A7009F352C /* CoreGraphics.framework */; };
@@ -101,6 +103,10 @@
 		F99C90FB1717F007002DFB3B /* lantop.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lantop.mp4; sourceTree = "<group>"; };
 		F9BEE60A16F8140D00941DBE /* UIImageView+Clipped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Clipped.h"; sourceTree = "<group>"; };
 		F9BEE60B16F8140D00941DBE /* UIImageView+Clipped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Clipped.m"; sourceTree = "<group>"; };
+		F9CB0E921738CBFF00F98EF6 /* UINavigationController+Autorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Autorotate.h"; path = "Vdemo/UINavigationController+Autorotate.h"; sourceTree = "<group>"; };
+		F9CB0E931738CBFF00F98EF6 /* UINavigationController+Autorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Autorotate.m"; path = "Vdemo/UINavigationController+Autorotate.m"; sourceTree = "<group>"; };
+		F9CB0E951739E29D00F98EF6 /* VDContentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDContentTableView.h; sourceTree = "<group>"; };
+		F9CB0E961739E29E00F98EF6 /* VDContentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDContentTableView.m; sourceTree = "<group>"; };
 		F9D3476916C0F3A7009F352C /* Vdemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vdemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D3476C16C0F3A7009F352C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F9D3476E16C0F3A7009F352C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -240,6 +246,8 @@
 			children = (
 				F950C30117378D8F00E2770C /* VDHeadTableView.h */,
 				F950C30217378D8F00E2770C /* VDHeadTableView.m */,
+				F9CB0E951739E29D00F98EF6 /* VDContentTableView.h */,
+				F9CB0E961739E29E00F98EF6 /* VDContentTableView.m */,
 			);
 			name = VDHeadTableView;
 			sourceTree = "<group>";
@@ -269,11 +277,21 @@
 			name = "UIImageView+Clipped";
 			sourceTree = "<group>";
 		};
+		F9CB0E911738CBB100F98EF6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F9CB0E921738CBFF00F98EF6 /* UINavigationController+Autorotate.h */,
+				F9CB0E931738CBFF00F98EF6 /* UINavigationController+Autorotate.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		F9D3476016C0F3A7009F352C = {
 			isa = PBXGroup;
 			children = (
 				F919734C16E58D1B00B72284 /* Icon@2x.png */,
 				F919734A16E58D1500B72284 /* Icon.png */,
+				F9CB0E911738CBB100F98EF6 /* Categories */,
 				F97563C716C1FA430093198F /* Vendor */,
 				F948ECB316E44E10005BB638 /* Resources */,
 				F9D3477216C0F3A7009F352C /* Vdemo */,
@@ -518,6 +536,8 @@
 				F9EA40DD17320E730092404F /* EGORefreshTableHeaderView.m in Sources */,
 				F9EA40E0173210950092404F /* VDRefreshTableFooterView.m in Sources */,
 				F950C30317378D8F00E2770C /* VDHeadTableView.m in Sources */,
+				F9CB0E941738CBFF00F98EF6 /* UINavigationController+Autorotate.m in Sources */,
+				F9CB0E971739E29E00F98EF6 /* VDContentTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

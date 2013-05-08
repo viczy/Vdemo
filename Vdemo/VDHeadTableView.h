@@ -21,6 +21,10 @@
 
 @property (nonatomic, weak) id <VDHeadTableViewDelegate> delegateHeader;
 
+- (void)VDScrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate;
+
+- (void)VDScrollViewDidEndDecelerating:(UIScrollView*)scrollView;
+
 @end
 
 /*

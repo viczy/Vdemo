@@ -15,9 +15,7 @@
 
 - (NSUInteger)numberOfPages;
 
-- (UIView*)viewForOrigin:(NSInteger)index;
-
-- (UIView*)pageChanged:(NSInteger)index;
+- (UIView*)pageViewWithIndex:(NSInteger)index;
 
 @end
 
@@ -25,5 +23,7 @@
 
 @property (nonatomic, assign) id <VDPageRefreshViewDelegate> delegateVDPageRefresh;
 @property (nonatomic, assign) NSInteger currentIndex;
+
+- (void)resetCurrentIndex:(NSInteger)index;
 
 @end
