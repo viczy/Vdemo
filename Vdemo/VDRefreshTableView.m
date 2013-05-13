@@ -133,11 +133,30 @@
 
 - (void)VDScrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
 	[self.pullRefreshView egoRefreshScrollViewDidEndDragging:scrollView];
-    if(scrollView.contentOffset.y-100.f > ((scrollView.contentSize.height - scrollView.frame.size.height)))
+    if(scrollView.contentOffset.y-60.f > ((scrollView.contentSize.height - scrollView.frame.size.height)))
     {
         if (self.loadMoreView.state != VDRefreshTableFooterViewStateEnd) {
             [self loadMore];
         }
+    }
+}
+
+- (void)showLoadingLatest {
+    [self setContentOffset:CGPointMake(0.f, -65.f) animated:NO];
+    [self.pullRefreshView egoRefreshScrollViewDidEndDragging:self];
+}
+
+- (void)showLoadingLast {
+    [self loadMore];
+}
+
+- (void)showLoadingOrigin {
+    if (!self.isLoading) {
+        if ([self.delegateRefresh respondsToSelector:@selector(VDRefreshTableViewWillBeginLoadingOrigin)]) {
+            [self.delegateRefresh VDRefreshTableViewWillBeginLoadingOrigin];
+        }
+        self.isLoading = YES;
+        self.loadMoreView.state = VDRefreshTableFooterViewStateLoading;
     }
 }
 
@@ -165,7 +184,6 @@
     if ([self.delegateRefresh respondsToSelector:@selector(VDRefreshTableViewWillBeginLoadingLatest)]) {
         [self.delegateRefresh VDRefreshTableViewWillBeginLoadingLatest];
     }
-
 }
 
 - (void)doneLoadingTableViewData{

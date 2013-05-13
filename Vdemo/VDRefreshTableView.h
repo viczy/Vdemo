@@ -34,6 +34,9 @@ typedef enum {
 @protocol VDRefreshTableViewDelegate <NSObject>
 
 @required
+- (void)VDRefreshTableViewWillBeginLoadingOrigin;
+
+@required
 - (void)VDRefreshTableViewWillBeginLoadingLatest;
 
 @required
@@ -55,5 +58,11 @@ typedef enum {
 - (void)VDScrollViewDidScroll:(UIScrollView *)scrollView;
 
 - (void)VDScrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+
+- (void)showLoadingLatest;
+
+- (void)showLoadingLast;
+
+- (void)showLoadingOrigin;
 
 @end

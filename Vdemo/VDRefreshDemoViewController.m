@@ -30,6 +30,11 @@
 
 #pragma mark - UIViewController
 
+-(void)loadView {
+    [super loadView];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refreshAction)];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,6 +47,13 @@
     [self.view addSubview:self.refreshTableView];
     
     self.sourceArray = @[@"test",@"test",@"test",@"test",@"test",@"test",@"test",@"test",@"test",@"test"];
+}
+
+#pragma mark - Actions Private
+
+- (void)refreshAction {
+    [self.refreshTableView showLoadingLast];
+//    [self.refreshTableView showLoadingLatest];
 }
 
 #pragma mark - UITableViewDatasource
