@@ -58,6 +58,12 @@
         }
             break;
             
+        case VDRefreshTableViewModeRefreshDisabled: {
+            [self.pullRefreshView removeFromSuperview];
+            self.tableFooterView = nil;
+        }
+            break;
+            
         default:
             break;
     }

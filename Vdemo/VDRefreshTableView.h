@@ -16,6 +16,7 @@ typedef enum {
     VDRefreshTableViewModeNormal = 0,//load latest, load last
     VDRefreshTableViewModeJustLatest,//just load latest
     VDRefreshTableViewModeJustLast,//just load last
+    VDRefreshTableViewModeRefreshDisabled,
 }VDRefreshTableViewMode;
 
 //table State
