@@ -118,7 +118,7 @@
 }
 
 #pragma mark - Actions Private
-
+//>3 pages 
 - (void)removeOldViews {
     if (self.currentIndex == 0) {//remove 0 and 1
         UIView *view0Old = [self viewWithTag:self.currentIndex+TAGADD];
@@ -197,6 +197,41 @@
     }
 }
 
+//only 2 pages
+- (void)refreshOnlyTwo {
+    UIView *view0Old = [self viewWithTag:TAGADD];
+    if (view0Old) {
+        [view0Old removeFromSuperview];
+    }
+    UIView *view1Old = [self viewWithTag:1+TAGADD];
+    if (view1Old) {
+        [view1Old removeFromSuperview];
+    }
+    
+    //current
+    UIView *view0New = [self.delegateVDPageRefresh pageViewWithIndex:0];
+    view0New.tag = TAGADD;
+    view0New.frame = CGRectMake(0.f, 0.0, self.frame.size.width, self.frame.size.height);
+    [self addSubview:view0New];
+    //next
+    UIView *view1New = [self.delegateVDPageRefresh pageViewWithIndex:1];
+    view1New.tag = 1+TAGADD;
+    view1New.frame = CGRectMake(self.frame.size.width, 0.0, self.frame.size.width, self.frame.size.height);
+    [self addSubview:view1New];
+}
+
+//only 1 page
+- (void)refreshOnlyOne {
+    UIView *view0Old = [self viewWithTag:self.currentIndex+TAGADD];
+    if (view0Old) {
+        [view0Old removeFromSuperview];
+    }
+    UIView *view0New = [self.delegateVDPageRefresh pageViewWithIndex:0];
+    view0New.tag = TAGADD;
+    view0New.frame = CGRectMake(0.f, 0.0, self.frame.size.width, self.frame.size.height);
+    [self addSubview:view0New];
+}
+
 #pragma mark - Actions Public
 
 - (void)resetCurrentIndex:(NSInteger)index {
@@ -206,13 +241,13 @@
         if (self.pages > 2) {// >2 pages
             [self removeOldViews];
             [self refreshPageViewWithIndex:index];
-            [self setContentOffset:CGPointMake(self.frame.size.width*index, 0) animated:YES];
         }else if (self.pages > 1) {//only two pages
-            self.currentIndex = index;
-            [self setContentOffset:CGPointMake(self.frame.size.width*index, 0) animated:YES];
+            [self refreshOnlyTwo];
         }else{//only one page
-            return;
+            [self refreshOnlyOne];
         }
+        _currentIndex = index;
+        [self setContentOffset:CGPointMake(self.frame.size.width*index, 0) animated:YES];
     }
 }
 
