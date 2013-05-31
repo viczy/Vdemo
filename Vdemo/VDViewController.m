@@ -18,6 +18,7 @@
 @interface VDViewController ()
 
 @property (nonatomic, strong) NSArray *source;
+@property (nonatomic, assign) NSInteger memberVariable;
 
 @end
 
@@ -35,15 +36,51 @@
     
     self.navigationItem.title = @"VDemo";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Jump" style:UIBarButtonItemStylePlain target:self action:@selector(jumpAction)];
     
     NSString *sourcePath = [VCommon getBundlePathWithFileName:MenuName];
     self.source = [NSArray arrayWithContentsOfFile:sourcePath];
+    self.memberVariable = 10;
+    [self testAccessVariable];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Actions Private
+
+- (void)testAccessVariable
+{
+    NSInteger outsideVariable = 10;
+    //__block NSInteger outsideVariable = 10;
+    NSMutableArray * outsideArray = [[NSMutableArray alloc] init];
+    
+    void (^blockObject)(void) = ^(void){
+        NSInteger insideVariable = 20;
+        NSLog(@"  > member variable = %d", self.memberVariable);
+        NSLog(@"  > outside variable = %d", outsideVariable);
+        NSLog(@"  > inside variable = %d", insideVariable);
+        
+        [outsideArray addObject:@"AddedInsideBlock"];
+    };
+    
+    outsideVariable = 30;
+    self.memberVariable = 30;
+    
+    blockObject();
+    
+    NSLog(@"  > %d items in outsideArray", [outsideArray count]);
+}
+
+- (void)jumpAction {
+    NSURL *appURL = [NSURL URLWithString:@"MCampusTeacher:"];
+    [[UIApplication sharedApplication] openURL:appURL];
+    //number phone use 
+//    UIWebView *appWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+//    [appWebView loadRequest:[NSURLRequest requestWithURL:appURL]];
 }
 
 #pragma mark -

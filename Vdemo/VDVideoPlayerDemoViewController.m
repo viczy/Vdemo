@@ -70,16 +70,38 @@
     self.navigationController.navigationBar.hidden = YES;
     //view旋转
     [self.view setTransform:CGAffineTransformMakeRotation(M_PI/2)];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake((self.view.bounds.size.width-80.f)/2, (self.view.bounds.size.height-30.f)/2, 80.f, 30.f);
+    [button setTitle:@"返回" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+-(void)viewWillAppear:(BOOL)animated
+{
+    //隐藏navigationController
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    //隐藏状态栏
+    self.wantsFullScreenLayout = YES;
+    //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+- (void)viewWillDisappear:(BOOL)animated
+{
+    //显示状态栏
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    //显示navigationController
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
+
+#pragma mark - Actions Private
+
+- (void)buttonAction {
+    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark - Orientation
 
