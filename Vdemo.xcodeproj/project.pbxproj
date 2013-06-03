@@ -635,6 +635,7 @@
 				GCC_PREFIX_HEADER = "Vdemo/Vdemo-Prefix.pch";
 				INFOPLIST_FILE = "Vdemo/Vdemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lsqlite3.0",
@@ -677,6 +678,7 @@
 				GCC_PREFIX_HEADER = "Vdemo/Vdemo-Prefix.pch";
 				INFOPLIST_FILE = "Vdemo/Vdemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lsqlite3.0",
