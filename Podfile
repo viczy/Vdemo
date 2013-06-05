@@ -6,4 +6,5 @@ pod 'AFNetworking'
 
 pod 'VCommon'
 
-pod 'ShareKit'
+# pod 'ShareKit'
+

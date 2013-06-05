@@ -5,9 +5,12 @@
 //  Created by Vic Zhou on 3/13/13.
 //  Copyright (c) 2013 Vic Zhou. All rights reserved.
 //
+#if 0
 
 #import <UIKit/UIKit.h>
 
 @interface VDShareKitDemoViewController : UIViewController <UIActionSheetDelegate>
 
 @end
+
+#endif

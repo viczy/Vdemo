@@ -27,7 +27,6 @@
 		F950C30317378D8F00E2770C /* VDHeadTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F950C30217378D8F00E2770C /* VDHeadTableView.m */; };
 		F96126F616FAA65C008026AE /* VDEditImageDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F96126F516FAA65C008026AE /* VDEditImageDemoViewController.m */; };
 		F961270016FAAA70008026AE /* PAV.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F96126FF16FAAA70008026AE /* PAV.bundle */; };
-		F961270516FACF0D008026AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F961270316FACF0D008026AE /* Localizable.strings */; };
 		F961270F16FAEF70008026AE /* VDShareKitConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F961270E16FAEF70008026AE /* VDShareKitConfigurator.m */; };
 		F961271216FBF4AE008026AE /* VDVideoPlayerDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F961271116FBF4AE008026AE /* VDVideoPlayerDemoViewController.m */; };
 		F961271816FBF712008026AE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F961271716FBF712008026AE /* MediaPlayer.framework */; };
@@ -93,7 +92,6 @@
 		F96126F416FAA65C008026AE /* VDEditImageDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEditImageDemoViewController.h; sourceTree = "<group>"; };
 		F96126F516FAA65C008026AE /* VDEditImageDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEditImageDemoViewController.m; sourceTree = "<group>"; };
 		F96126FF16FAAA70008026AE /* PAV.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PAV.bundle; sourceTree = "<group>"; };
-		F961270416FACF0D008026AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F961270D16FAEF70008026AE /* VDShareKitConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDShareKitConfigurator.h; sourceTree = "<group>"; };
 		F961270E16FAEF70008026AE /* VDShareKitConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDShareKitConfigurator.m; sourceTree = "<group>"; };
 		F961271016FBF4AE008026AE /* VDVideoPlayerDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDVideoPlayerDemoViewController.h; sourceTree = "<group>"; };
@@ -343,7 +341,6 @@
 			isa = PBXGroup;
 			children = (
 				F9D3477416C0F3A7009F352C /* Vdemo-Info.plist */,
-				F961270316FACF0D008026AE /* Localizable.strings */,
 				F9D3477516C0F3A7009F352C /* InfoPlist.strings */,
 				F9D3477816C0F3A7009F352C /* main.m */,
 				F9D3477A16C0F3A7009F352C /* Vdemo-Prefix.pch */,
@@ -480,7 +477,6 @@
 				F919734D16E58D1B00B72284 /* Icon@2x.png in Resources */,
 				F912464116F95B9E009679C4 /* Pic.bundle in Resources */,
 				F961270016FAAA70008026AE /* PAV.bundle in Resources */,
-				F961270516FACF0D008026AE /* Localizable.strings in Resources */,
 				F961271C16FC007D008026AE /* animal.mp4 in Resources */,
 				F99C90FC1717F007002DFB3B /* lantop.mp4 in Resources */,
 			);
@@ -544,14 +540,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F961270316FACF0D008026AE /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F961270416FACF0D008026AE /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		F9D3477516C0F3A7009F352C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

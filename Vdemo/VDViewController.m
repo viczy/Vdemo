@@ -125,8 +125,8 @@
         }
             
         case 2: {
-            VDShareKitDemoViewController *vdShareDemoVC = [[VDShareKitDemoViewController alloc] init];
-            [self.navigationController pushViewController:vdShareDemoVC animated:YES];
+//            VDShareKitDemoViewController *vdShareDemoVC = [[VDShareKitDemoViewController alloc] init];
+//            [self.navigationController pushViewController:vdShareDemoVC animated:YES];
             break;
         }
             

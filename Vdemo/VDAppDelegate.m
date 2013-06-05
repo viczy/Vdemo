@@ -9,7 +9,7 @@
 #import "VDAppDelegate.h"
 
 #import "VDViewController.h"
-#import "SHKConfiguration.h"
+//#import "SHKConfiguration.h"
 #import "VDShareKitConfigurator.h"
 
 @implementation VDAppDelegate
@@ -20,8 +20,8 @@
 //    [self applyStylesheet];
     
     //for sharekit
-    DefaultSHKConfigurator *configurator = [[VDShareKitConfigurator alloc] init];
-    [SHKConfiguration sharedInstanceWithConfigurator:configurator];
+//    DefaultSHKConfigurator *configurator = [[VDShareKitConfigurator alloc] init];
+//    [SHKConfiguration sharedInstanceWithConfigurator:configurator];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
