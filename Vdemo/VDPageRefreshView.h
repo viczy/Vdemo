@@ -8,22 +8,31 @@
 //  Copyright (c) 2013 Vic Zhou. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 @class VDPageRefreshView;
 
-@protocol VDPageRefreshViewDelegate <NSObject>
+@protocol VDPageRefreshViewDataSource <NSObject>
 
 - (NSUInteger)numberOfPages;
 
-- (UIView*)pageViewWithIndex:(NSInteger)index;
+- (UIView*)pageView:(VDPageRefreshView*)pageView viewForPageAtIndex:(NSUInteger)index;
+
+@end
+
+@protocol VDPageRefreshViewDelegate <NSObject>
+
+- (void)pageView:(VDPageRefreshView*)pageView viewLoadOverAtIndex:(NSUInteger)index;
 
 @end
 
 @interface VDPageRefreshView : UIScrollView <UIScrollViewDelegate>
 
-@property (nonatomic, assign) id <VDPageRefreshViewDelegate> delegateVDPageRefresh;
-@property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, assign) id <VDPageRefreshViewDataSource> dataSource;
+@property (nonatomic, assign) id <VDPageRefreshViewDelegate> delegatePage;
 
-- (void)resetCurrentIndex:(NSInteger)index;
+- (void)reload;
+
+- (void)scrollToPageAtIndex:(NSUInteger)index;
+
+- (void)turnToPageAtIndex:(NSUInteger)index;
 
 @end

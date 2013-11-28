@@ -25,7 +25,8 @@
         CGRect rect = CGRectMake(0.0, 0.0, 320.0, 480.0);
         self.pageRefreshView = [[VDPageRefreshView alloc] initWithFrame:rect];
         self.pageRefreshView.backgroundColor = [UIColor whiteColor];
-        self.pageRefreshView.delegateVDPageRefresh = self;
+        self.pageRefreshView.dataSource = self;
+        self.pageRefreshView.delegatePage = self;
         [self.view addSubview:self.pageRefreshView];
     }
     return self;
@@ -44,7 +45,7 @@
 
 - (void)jumpAction {
     NSInteger index = (NSUInteger)arc4random()%6;
-    [self.pageRefreshView resetCurrentIndex:index];
+    [self.pageRefreshView scrollToPageAtIndex:index];
 }
 
 #pragma mark - VDPageRefreshView delegate
@@ -55,7 +56,7 @@
 }
 
 //翻页的更新页
-- (UIView*)pageViewWithIndex:(NSInteger)index {
+- (UIView*)pageView:(VDPageRefreshView *)pageView viewForPageAtIndex:(NSUInteger)index {
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
     switch (index) {
         case 0:
