@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VDHeadTableView.h"
 
-@interface VDScrollDemoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface VDScrollDemoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, VDHeadTableViewDelegate>
 
 @end
+

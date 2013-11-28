@@ -8,130 +8,135 @@
 
 #import "VDPageRefreshView.h"
 
-#define TAGADD      10  //tag基数
-
 @interface VDPageRefreshView ()
 
-@property (nonatomic, assign) BOOL isScrolling;
 @property (nonatomic, assign) NSUInteger pages;
+@property (nonatomic, assign) NSInteger currentIndex;
 
 @end
 
 
 @implementation VDPageRefreshView
 
-- (id)initWithFrame:(CGRect)frame {
+#pragma mark - NSObject
+
+- (id)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
+
     if (self) {
-        self.delegate = self;
+        _currentIndex = 0;
     }
+
     return self;
 }
 
-- (void)drawRect:(CGRect)rect {
-    _currentIndex = 0;
-    self.pagingEnabled = YES;
-    self.pages = [self.delegateVDPageRefresh numberOfPages];
-    self.contentSize = CGSizeMake(self.frame.size.width*self.pages, self.frame.size.height);
-    //初始化一页或者两页
-    if (self.pages >= 2) {
-        UIView *view0 = [self.delegateVDPageRefresh viewForOrigin:0];
-        view0.tag = 0+TAGADD;
-        view0.frame = CGRectMake(self.frame.size.width*0, 0.0, self.frame.size.width, self.frame.size.height);
-        [self addSubview:view0];
-        
-        UIView *view1 = [self.delegateVDPageRefresh viewForOrigin:1];
-        view1.tag = 1+TAGADD;
-        view1.frame = CGRectMake(self.frame.size.width*1, 0.0, self.frame.size.width, self.frame.size.height);
-        [self addSubview:view1];
+#pragma mark - UIView Setter
+
+- (void)setPages:(NSUInteger)pages {
+    _pages = pages;
+    self.contentSize = CGSizeMake(self.bounds.size.width * self.pages, self.bounds.size.height);
+}
+
+- (void)setCurrentIndex:(NSInteger)currentIndex
+{
+    if (_currentIndex < currentIndex) { // 向后翻页的事件处理
+        [self addSubviewAtIndex:currentIndex+1];
+        [self removeSubviewAtIndex:currentIndex-2];
+    }else if (_currentIndex > currentIndex) { // 向前翻页的事件处理
+        [self addSubviewAtIndex:currentIndex-1];
+        [self removeSubviewAtIndex:currentIndex+2];
     }
-    else {
-        if (self.pages > 0) {
-            UIView *view0 = [self.delegateVDPageRefresh viewForOrigin:0];
-            view0.tag = 0+TAGADD;
-            view0.frame = CGRectMake(self.frame.size.width*0, 0.0, self.frame.size.width, self.frame.size.height);
-            [self addSubview:view0];
-        }
+    _currentIndex = currentIndex;
+    [self loadOverSubviewAtIndex:currentIndex];
+}
+
+#pragma mark - UIView
+
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+
+    self.delegate = self;
+    self.pagingEnabled = YES;
+
+    self.pages = [self.dataSource numberOfPages];
+    [self addSubviewAtIndex:0];
+    [self addSubviewAtIndex:1];
+    [self loadOverSubviewAtIndex:0];
+}
+
+#pragma mark - Actions Public
+
+- (void)reload {
+    [self scrollToPageAtIndex:self.currentIndex];
+}
+
+- (void)scrollToPageAtIndex:(NSUInteger)index {
+    _currentIndex = index;
+    //clear all old view
+    [self removeSubviewAtIndex:index-1];
+    [self removeSubviewAtIndex:index];
+    [self removeSubviewAtIndex:index+1];
+    //add sub view
+    [self addSubviewAtIndex:index-1];
+    [self addSubviewAtIndex:index];
+    [self addSubviewAtIndex:index+1];
+    //scroll to page
+    [self setContentOffset:CGPointMake(self.bounds.size.width*index, 0) animated:YES];
+}
+
+- (void)turnToPageAtIndex:(NSUInteger)index {
+    //scroll to page
+    [self setContentOffset:CGPointMake(self.bounds.size.width*index, 0) animated:YES];
+}
+
+#pragma mark - Actions Private
+
+//add sub view
+- (void)addSubviewAtIndex:(NSUInteger)index {
+    if (index < self.pages ) {
+        if ([self.dataSource respondsToSelector:@selector(pageView:viewForPageAtIndex:)]) {
+            UIView *view = [self.dataSource pageView:self viewForPageAtIndex:index];
+            view.tag = index+100;//tag+100
+            view.frame = CGRectMake(self.bounds.size.width *index, 0.f, self.bounds.size.width, self.bounds.size.height);
+            [self addSubview:view];}
     }
 }
 
-#pragma mark -
-#pragma mark self set
+//remove sub view
+- (void)removeSubviewAtIndex:(NSUInteger)index {
+    UIView *view = [self viewWithTag:index+100];//tag+100
+    if (view) {
+        [view removeFromSuperview];
+    }
+}
 
-- (void)setCurrentIndex:(NSInteger)currentIndex {
-    if (_currentIndex == self.pages -1) {
-        _currentIndex = currentIndex;
-        return;
+//load over
+- (void)loadOverSubviewAtIndex:(NSUInteger)index {
+    if ([self.delegatePage respondsToSelector:@selector(pageView:viewLoadOverAtIndex:)]) {
+        [self.delegatePage pageView:self viewLoadOverAtIndex:index];
     }
-    //向后翻页的事件处理
-    if (_currentIndex < currentIndex) {
-        if (currentIndex == self.pages-1) {
-            _currentIndex = currentIndex;
-            return;
-        }
-        else {
-            UIView *viewNew = [self.delegateVDPageRefresh pageChanged:currentIndex+1];
-            viewNew.tag = currentIndex+1+TAGADD;
-            viewNew.frame = CGRectMake(self.frame.size.width*(currentIndex+1), 0.0, self.frame.size.width, self.frame.size.height);
-            [self addSubview:viewNew];
-            
-            UIView *viewOld = [self viewWithTag:currentIndex-2+TAGADD];
-            if (viewOld) {
-                [viewOld removeFromSuperview];
-            }
-        }
-        
+}
+
+// scroll over
+- (void)scrollingEnded
+{
+    NSInteger newIndex = floor(self.contentOffset.x / self.frame.size.width);
+
+    newIndex = newIndex < 0 ? 0 : newIndex;
+
+    if (newIndex != _currentIndex) {
+         self.currentIndex = newIndex;
     }
-    //向前翻页的事件处理
-    else if (_currentIndex > currentIndex) {
-        if (currentIndex == 0) {
-            _currentIndex = currentIndex;
-            return;
-        }
-        else {
-            UIView *viewNew = [self.delegateVDPageRefresh pageChanged:currentIndex-1];
-            viewNew.tag = currentIndex-1+TAGADD;
-            viewNew.frame = CGRectMake(self.frame.size.width*(currentIndex-1), 0.0, self.frame.size.width, self.frame.size.height);
-            [self addSubview:viewNew];
-            
-            UIView *viewOld = [self viewWithTag:currentIndex+2+TAGADD];
-            [viewOld removeFromSuperview];
-        }
-    }
-    _currentIndex = currentIndex;
 }
 
 #pragma mark -
 #pragma mark scrollview delegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    self.isScrolling = YES;
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
     [self scrollingEnded];
 }
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-//    [self scrollingEnded];
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)theScrollView {
-//    [self scrollingEnded];
-}
-
-#pragma mark scrollview delegate action
-
-//翻页结束的事件处理
-- (void)scrollingEnded
-{
-//    self.isScrolling = NO;
-    NSUInteger newIndex = floor(self.contentOffset.x / self.frame.size.width);
-    
-    if (newIndex == self.currentIndex) {
-        return;
-    }
-    else {
-        self.currentIndex = newIndex;
-    }
-}
-
 
 @end

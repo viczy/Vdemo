@@ -5,7 +5,7 @@
 //  Created by Vic Zhou on 3/13/13.
 //  Copyright (c) 2013 Vic Zhou. All rights reserved.
 //
-
+#if 0
 #import "VDShareKitDemoViewController.h"
 #import "VDScrollDemoViewController.h"
 #import "SHK.h"
@@ -70,3 +70,5 @@
 }
 
 @end
+
+#endif

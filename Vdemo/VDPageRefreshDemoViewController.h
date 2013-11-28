@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "VDPageRefreshView.h"
 
-@interface VDPageRefreshDemoViewController : UIViewController <VDPageRefreshViewDelegate>
+@interface VDPageRefreshDemoViewController : UIViewController <
+    VDPageRefreshViewDelegate,
+    VDPageRefreshViewDataSource>
 
 @end

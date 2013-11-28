@@ -31,17 +31,10 @@
                 clipRect = CGRectMake((imageSize.width-imageviewSize.width)/2, (imageSize.height-imageviewSize.height)/2, imageviewSize.width, imageviewSize.height);
             }
         }
-        
+        float scale = 2;
         CGImageRef imageRef = self.image.CGImage;
-        CGImageRef subImageRef = CGImageCreateWithImageInRect(imageRef, clipRect);
-        CGSize size;
-        size.width = clipRect.size.width;
-        size.height = clipRect.size.height;
-        UIGraphicsBeginImageContext(size);
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextDrawImage(context, clipRect, subImageRef);
-        UIImage* newImage = [UIImage imageWithCGImage:subImageRef];
-        UIGraphicsEndImageContext();
+        CGImageRef imgrefout = CGImageCreateWithImageInRect(imageRef, CGRectMake(clipRect.origin.x*scale, clipRect.origin.y*scale, clipRect.size.width*scale, clipRect.size.height*scale));
+        UIImage *newImage = [[UIImage alloc]initWithCGImage:imgrefout];
         self.image = newImage;
     }
 }

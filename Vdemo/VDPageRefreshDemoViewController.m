@@ -16,6 +16,8 @@
 
 @implementation VDPageRefreshDemoViewController
 
+#pragma mark - NSObject
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,50 +25,38 @@
         CGRect rect = CGRectMake(0.0, 0.0, 320.0, 480.0);
         self.pageRefreshView = [[VDPageRefreshView alloc] initWithFrame:rect];
         self.pageRefreshView.backgroundColor = [UIColor whiteColor];
-        self.pageRefreshView.delegateVDPageRefresh = self;
+        self.pageRefreshView.dataSource = self;
+        self.pageRefreshView.delegatePage = self;
         [self.view addSubview:self.pageRefreshView];
     }
     return self;
 }
 
+#pragma mark - UIViewController
+
 - (void)viewDidLoad
 {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"跳转" style:UIBarButtonItemStylePlain target:self action:@selector(jumpAction)];
     [super viewDidLoad];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
+
+#pragma mark - Actions Private
+
+- (void)jumpAction {
+    NSInteger index = (NSUInteger)arc4random()%6;
+    [self.pageRefreshView scrollToPageAtIndex:index];
 }
 
-#pragma mark -
-#pragma mark VDPageRefreshView delegate
+#pragma mark - VDPageRefreshView delegate
 
 //pages
 - (NSUInteger)numberOfPages {
     return 6;
 }
 
-//开始的前两页，不足两页则仅画一页
-- (UIView*)viewForOrigin:(NSInteger)index {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-    switch (index) {
-        case 0:
-            view.backgroundColor = [UIColor redColor];
-            break;
-            
-        case 1:
-            view.backgroundColor = [UIColor yellowColor];
-            break;
-            
-        default:
-            break;
-    }
-    return view;
-}
-
 //翻页的更新页
-- (UIView*)pageChanged:(NSInteger)index {
+- (UIView*)pageView:(VDPageRefreshView *)pageView viewForPageAtIndex:(NSUInteger)index {
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
     switch (index) {
         case 0:
